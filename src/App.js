@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import HomePage from './page/HomePage'
+import LawInfo from './page/LawInfo'
+import MyNote from './page/MyNote'
+import LawList from './components/LawList/LawList'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { firestore } from './database/firebase-service';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+class App extends React.Component {
+    
+    render() {
+        return (
+            <Router basename="/my-law-app/">
+                <div>
+                    <Switch>
+                        <Route path='/' exact component={HomePage}></Route>
+                        <Route path='/lawinfo' component={LawInfo}></Route>
+                        <Route path='/mynote' component={MyNote}></Route>
+                        <Route path='/LawList' component={LawList}></Route>
+                    </Switch>
+                </div>
+            </Router>
+        )
+    }
 }
+
+
 
 export default App;

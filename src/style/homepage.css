@@ -1,0 +1,225 @@
+body{
+    margin-bottom: -50px;
+    margin:0px;
+    padding: 0px;
+    background-color: #FDFAF4;
+}
+
+.nav{
+    display: flex;
+    background-color:rgba(71, 123, 114, 1);
+    margin:0px;
+    height:150px;
+    justify-content:space-around;
+    align-items:center;
+}
+.menu-frame{
+    display: flex;
+    justify-self: start;
+    align-items: center;
+    list-style:none;
+}
+.member-frame{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    list-style:none;
+
+}
+
+.menu-frame li{
+    margin:20px;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: center;
+    color:rgba(253, 247, 247, 1);
+    text-decoration:underline;
+}
+.member-frame li{
+    width: 150px;
+    margin:20px;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: center;
+    color:rgba(253, 247, 247, 1);
+    text-decoration: underline rgba(71, 123, 114, 1);
+
+}
+.member-frame-style{
+    border:5px solid #FDFAF4;
+    border-radius:0.6rem;
+    padding: 10px;
+    width: 70%;
+    margin: 50px;
+}
+
+
+.footer{
+    background-color:rgba(119, 117, 112, 1);
+    height: 60px;
+    width: 100vw;
+
+
+}
+
+.text{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:rgba(223, 217, 217, 1);
+}
+
+.laws-menu-frame{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: -140px;
+
+    
+}
+.law-menu:hover{
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.law-menu{
+    width: 330px;
+    height: 415px;
+    margin: 45px;
+    background-color: rgba(229, 229, 229, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius:30px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-decoration: underline rgba(229, 229, 229, 1);
+    
+}
+
+.law-menu-text{
+    color:rgb(73, 71, 71);
+    font-family: Roboto;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+    list-style:none;
+    margin-right:40px;
+    font-weight: bold;
+
+}
+
+.slogan-frame{
+    background-color: rgba(71, 123, 114, 1);
+    margin: 20px;
+
+}
+
+.slogan-header{
+    font-family: Roboto;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 113px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:rgba(253, 247, 247, .6);
+    padding-top: 30px;
+}
+
+.slogan-text-frame{
+    margin-top: 30px;
+    display: flex;
+}
+.slogan-text{
+    font-family: Roboto;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:rgba(232, 226, 226, 1);
+}
+.slogan-text-frame i{
+    opacity: .6;
+}
+
+.search-frame{
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.prompt{
+    width: 350px;
+    height: 70px;
+    font-size: 25px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    color: #EACEA7;
+    
+}
+
+.header-frame{
+    height: 45vh;
+    display: flex;
+    background-color:rgba(71, 123, 114, 1);
+    justify-content:space-around;
+
+}
+.law-menu i{
+    margin-left:160px;
+}
+
+
+.ui.table thead th {
+    background-color:rgba(71, 123, 114, 0.49);
+    height: 50px;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight:bolder;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-align: center;
+    border:none;
+
+}
+tr{
+    margin-top: 10px;
+    text-align: center;
+}
+td{
+    width: 800px;
+    font-family: Roboto;
+    font-size: 25px;
+    font-style: normal;
+    font-weight:600;
+    line-height: 30px;
+    letter-spacing: 0em;
+    background-color:rgba(197, 227, 225, 0.24);
+    
+}
+.laws-list-frame{
+    margin: 50px;
+}
