@@ -13,7 +13,7 @@ class App extends React.Component {
     
     render() {
         return (
-            <Router basename="/my-law-app/">
+            <Router basename="/LawProject/">
                 <div>
                     <Switch>
                         <Route path='/' exact component={HomePage}></Route>
