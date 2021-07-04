@@ -13,13 +13,13 @@ class App extends React.Component {
     
     render() {
         return (
-            <Router basename="/build/index.html">
+            <Router>
                 <div>
                     <Switch>
-                        <Route path='/' exact component={HomePage}></Route>
-                        <Route path='/lawinfo' component={LawInfo}></Route>
-                        <Route path='/mynote' component={MyNote}></Route>
-                        <Route path='/LawList' component={LawList}></Route>
+                        <Route path='/LawProject' exact component={HomePage}></Route>
+                        <Route path='/LawProject/lawinfo' component={LawInfo}></Route>
+                        <Route path='/LawProject/mynote' component={MyNote}></Route>
+                        <Route path='/LawProject/LawList' component={LawList}></Route>
                     </Switch>
                 </div>
             </Router>
