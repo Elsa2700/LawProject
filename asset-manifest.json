@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/Elsa2700/LawProject/static/css/main.2f730dca.chunk.css",
-    "main.js": "/Elsa2700/LawProject/static/js/main.5acc94e2.chunk.js",
-    "main.js.map": "/Elsa2700/LawProject/static/js/main.5acc94e2.chunk.js.map",
+    "main.js": "/Elsa2700/LawProject/static/js/main.60b49220.chunk.js",
+    "main.js.map": "/Elsa2700/LawProject/static/js/main.60b49220.chunk.js.map",
     "runtime-main.js": "/Elsa2700/LawProject/static/js/runtime-main.3bb0d486.js",
     "runtime-main.js.map": "/Elsa2700/LawProject/static/js/runtime-main.3bb0d486.js.map",
-    "static/js/2.359a11e1.chunk.js": "/Elsa2700/LawProject/static/js/2.359a11e1.chunk.js",
-    "static/js/2.359a11e1.chunk.js.map": "/Elsa2700/LawProject/static/js/2.359a11e1.chunk.js.map",
+    "static/js/2.35dc6a6a.chunk.js": "/Elsa2700/LawProject/static/js/2.35dc6a6a.chunk.js",
+    "static/js/2.35dc6a6a.chunk.js.map": "/Elsa2700/LawProject/static/js/2.35dc6a6a.chunk.js.map",
     "index.html": "/Elsa2700/LawProject/index.html",
     "static/css/main.2f730dca.chunk.css.map": "/Elsa2700/LawProject/static/css/main.2f730dca.chunk.css.map",
-    "static/js/2.359a11e1.chunk.js.LICENSE.txt": "/Elsa2700/LawProject/static/js/2.359a11e1.chunk.js.LICENSE.txt"
+    "static/js/2.35dc6a6a.chunk.js.LICENSE.txt": "/Elsa2700/LawProject/static/js/2.35dc6a6a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3bb0d486.js",
-    "static/js/2.359a11e1.chunk.js",
+    "static/js/2.35dc6a6a.chunk.js",
     "static/css/main.2f730dca.chunk.css",
-    "static/js/main.5acc94e2.chunk.js"
+    "static/js/main.60b49220.chunk.js"
   ]
 }
