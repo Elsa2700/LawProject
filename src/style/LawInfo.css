@@ -1,0 +1,106 @@
+/* LawTool */
+.tool-frame{
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight:bolder;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #00000069;
+
+}
+.font-tool{
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+.tool-frame span{
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.font-tool .ui.buttons .button {
+    border: 3px solid #A99D9D;
+    background-color: rgba(240, 255, 255, 0);
+    margin: 5px;
+    font-size: 30px;
+    padding: 6px;
+}
+.read-tool{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.read-tool .ui.buttons{
+    margin: 5px;
+
+}
+
+/* LawHeader */
+
+.LawHeader-frame{
+    width: 80%;
+    margin: auto;
+}
+.LawHeader-frame header{
+    margin-bottom: 40px;
+    font-family: Roboto;
+    font-size: 45px;
+    font-style: normal;
+    font-weight:bolder;
+    line-height: 53px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.LawHeader-frame p{
+    font-family: Roboto;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 41px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+/* LawChapter */
+.lawchapter-frame{
+    width: 80%;
+    margin: 80px auto;
+}
+.lawchapter-frame .ui.button{
+    font-family: Roboto;
+    font-size: 25px;
+    font-style: normal;
+    font-weight:bolder;
+    text-align: left;
+    color: #00000069;
+}
+
+.LawMain-frame{
+    border: 3px solid #00000044;
+    border-radius: 20px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 20px;
+    width: 80%;
+    margin: 50px auto;
+    font-family: Roboto;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 41px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.bookmark.icon{
+    cursor: pointer;
+}
