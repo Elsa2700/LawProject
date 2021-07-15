@@ -5,7 +5,7 @@ const SearchBar = () => {
         <div className="search-frame">
             <div className='ui search'>
                 <form>
-                    <div class="ui icon input">
+                    <div className="ui icon input">
                         <input className="prompt" type="text" placeholder="想要搜尋甚麼呢?" />
                         <i className=" large search icon"></i>
                     </div>
