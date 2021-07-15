@@ -16,7 +16,7 @@ class LawTool extends React.Component {
                 <div className="read-tool">
                     <span>朗讀</span>
                     <div className="ui icon buttons">
-                        <button class="huge ui button active">
+                        <button className="huge ui button active">
                             <i className="play icon"></i>
                         </button>
                         <button className="huge ui button">

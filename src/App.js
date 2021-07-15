@@ -10,10 +10,11 @@ import { firestore } from './database/firebase-service';
 
 
 class App extends React.Component {
+    state = {laws:[]};
     
     render() {
         return (
-            <Router basename='/build/index.html'>
+            <Router basename='/'>
                 <div>
                     <Switch>
                         <Route path='/' exact component={HomePage}></Route>

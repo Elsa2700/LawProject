@@ -6,20 +6,19 @@ import LawTool from '../components/LawHeader/LawTool';
 import LawHeader from '../components/LawHeader/LawHeader'
 import LawChapter from '../components/LawHeader/LawChapter';
 import LawMain from '../components/LawMain/LawMain';
-import {useLocation} from 'react-router-dom'
-import {BrowserRouter as Router,Switch,Route,useParams} from "react-router-dom";
+import { useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, useParams } from "react-router-dom";
 
 
-const LawInfo = () =>{
+const LawInfo = (props) => {
     const location = useLocation();
-    console.log(location.state)
     return (
         <div>
             <NavBar />
             <LawTool />
-            <LawHeader/>
-            <LawChapter />
-            <LawMain />            
+            <LawHeader LawInfo={props.location.state.lawinfo} />
+            <LawChapter LawInfo={props.location.state.lawinfo} />
+            <LawMain LawInfo={props.location.state.lawinfo} />
             <Root />
         </div>
     )

@@ -47,11 +47,14 @@
 .LawHeader-frame{
     width: 80%;
     margin: auto;
+    background-color: rgba(217, 230, 195, 0.6);
+    border-radius: 20px;
+    padding: 30px 20px 20px;
 }
 .LawHeader-frame header{
     margin-bottom: 40px;
     font-family: Roboto;
-    font-size: 45px;
+    font-size: 40px;
     font-style: normal;
     font-weight:bolder;
     line-height: 53px;
@@ -60,7 +63,8 @@
 
 }
 
-.LawHeader-frame p{
+.LawHeader-frame span{
+    margin-left: 15px;
     font-family: Roboto;
     font-size: 35px;
     font-style: normal;
