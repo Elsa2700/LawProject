@@ -29,7 +29,7 @@ body{
 
 .menu-frame li{
     margin:20px;
-    font-family: Roboto;
+    font-family: sans-serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
@@ -42,7 +42,7 @@ body{
 .member-frame li{
     width: 150px;
     margin:20px;
-    font-family: Roboto;
+    font-family: sans-serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
@@ -76,7 +76,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Roboto;
+    font-family: sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -114,7 +114,7 @@ body{
 
 .law-menu-text{
     color:rgb(73, 71, 71);
-    font-family: Roboto;
+    font-family: sans-serif;
     font-size: 25px;
     font-style: normal;
     font-weight: 400;
@@ -134,7 +134,7 @@ body{
 }
 
 .slogan-header{
-    font-family: Roboto;
+    font-family: sans-serif;
     font-size: 96px;
     font-style: normal;
     font-weight: 700;
@@ -150,7 +150,7 @@ body{
     display: flex;
 }
 .slogan-text{
-    font-family: Roboto;
+    font-family: sans-serif;
     font-size: 31px;
     font-style: normal;
     font-weight: 700;
@@ -172,7 +172,7 @@ body{
     width: 350px;
     height: 70px;
     font-size: 25px;
-    font-family: Roboto;
+    font-family: sans-serif;
     font-style: normal;
     font-weight: 700;
     color: #EACEA7;
@@ -192,9 +192,10 @@ body{
 
 
 .ui.table thead th {
+    border-bottom: 1rem solid red;
     background-color:rgba(71, 123, 114, 0.49);
     height: 50px;
-    font-family: Roboto;
+    font-family: sans-serif;
     font-size: 30px;
     font-style: normal;
     font-weight:bolder;
@@ -208,11 +209,13 @@ body{
 tr{
     margin-top: 10px;
     text-align: center;
+    width: 800px;
 }
 td{
-    width: 800px;
-    font-family: Roboto;
+    width: 1000px;
+    font-family: sans-serif;
     font-size: 25px;
+    cursor: pointer;
     font-style: normal;
     font-weight:600;
     line-height: 30px;
@@ -222,4 +225,53 @@ td{
 }
 .laws-list-frame{
     margin: 50px;
+}
+
+.page-btn{
+    margin: 50px;
+    display: flex;
+    justify-content: start;
+}
+
+.page-info{
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight:600;
+    color: rgb(82, 58, 8);
+
+}
+.page-info .now{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 50%;
+    background: #BADA55;
+    display: flex;
+    align-items: center;
+}
+.ui tr{
+    position: relative;
+}
+.ui tr i{
+    z-index: 2;
+    display: block;
+    position:absolute;
+    top:0px;
+    left: 0px;
+    margin: 10px;
+
+} 
+
+
+.talbe-row{
+    margin: 30px;
+}
+
+.ui .talbe{
+    margin:0px
+}
+td{
+    background-color: rgba(240, 255, 255, 0);
 }
