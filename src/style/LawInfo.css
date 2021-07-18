@@ -1,7 +1,11 @@
 /* LawTool */
 .tool-frame{
-    width: 80%;
-    margin: 50px auto;
+    padding-right: 200px;
+    position: absolute;
+    background-color: #FDFAF4;
+    width: 100%;
+    top:150px;
+    height: 100px;
     display: flex;
     justify-content:flex-end;
     align-items: center;
@@ -46,7 +50,8 @@
 
 .LawHeader-frame{
     width: 80%;
-    margin: auto;
+    margin: 20px auto;
+    margin-top:300px;
     background-color: rgba(217, 230, 195, 0.6);
     border-radius: 20px;
     padding: 30px 20px 20px;
@@ -77,26 +82,67 @@
 /* LawChapter */
 .lawchapter-frame{
     width: 80%;
-    margin: 80px auto;
+    margin: 40px auto;
 }
+
 .lawchapter-frame .ui.button{
+    margin:10px 10px auto;
     font-family: Roboto;
-    font-size: 25px;
+    font-size: 30px;
     font-style: normal;
     font-weight:bolder;
     text-align: left;
     color: #00000069;
+   
+}
+.ui.button.section{
+    background-color:#FDFAF4; 
+    margin: 10px; 
+}
+
+.LawMain-chapter{
+    margin:50px 0px auto;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    font-family: Roboto;
+    font-size: 45px;
+    font-style: normal;
+    font-weight:bolder;
+    letter-spacing: 0em;
+
+
+}
+.LawMain-section{
+    color: rgb(43, 114, 93);
+    margin:50px 0px auto;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    font-family: Roboto;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: bolder;
+    letter-spacing: 0em;
+
 }
 
 .LawMain-frame{
-    border: 3px solid #00000044;
-    border-radius: 20px;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    padding: 20px;
     width: 80%;
     margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.LawMain-item{
+    display: flex;
+    justify-content:space-between;
+    margin-top:50px;
+    border: 3px solid #00000044;
+    border-radius: 10px;
     font-family: Roboto;
     font-size: 35px;
     font-style: normal;
@@ -104,7 +150,49 @@
     line-height: 41px;
     letter-spacing: 0em;
     text-align: left;
+    position: relative;
+    
+
 }
-.bookmark.icon{
+.LawMain-item header{
+    margin: 20px;
+    font-weight: bold;
+    
+}
+.LawMain-item p{
+    padding: 20px;
+    line-height: 60px;
+}
+.LawMain-frame i{
     cursor: pointer;
+    margin-right: 10px;
+
 }
+i.arrow.circle.icon{
+    color: rgb(146, 129, 54);
+    position: fixed;
+    bottom: 100px;
+    left: 15px;
+    cursor: pointer;
+    display: inline-block;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.2))
+    
+    
+
+}
+.gray.bookmark.icon{
+    color: rgb(92, 90, 89);
+}
+.arrowIcon{
+    width: 100px;
+}
+
+
+  @keyframes example {
+    0% {transform:translateY(0%)}
+    50% {transform:translateY(10%)}
+  }
+

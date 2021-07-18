@@ -3,6 +3,7 @@ import HomePage from './page/HomePage'
 import LawInfo from './page/LawInfo'
 import MyNote from './page/MyNote'
 import LawList from './components/LawList/LawList'
+import MyBlank from './page/MyBlank'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { firestore } from './database/firebase-service';
 
@@ -21,6 +22,7 @@ class App extends React.Component {
                         <Route path='/lawinfo' component={LawInfo}></Route>
                         <Route path='/mynote' component={MyNote}></Route>
                         <Route path='/LawList' component={LawList}></Route>
+                        <Route path='/myblank' component={MyBlank}></Route>
                     </Switch>
                 </div>
             </Router>

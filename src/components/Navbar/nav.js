@@ -7,7 +7,7 @@ const NavBar = () => {
         <div className="nav">
             <ul className="menu-frame">
                 <Link to='/'><li>首頁</li></Link>
-                <Link to='/lawinfo'><li>法規查詢</li></Link>
+                <Link to='/myblank'><li>法規查詢</li></Link>
                 <Link to='/mynote'><li>我的筆記</li></Link>
             </ul>
             <ul className="member-frame">

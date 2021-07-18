@@ -4,10 +4,14 @@ import SearchBar from './searchbar';
 
 const Header = () => {
     return (
-        <div className="header-frame">
-            <Slogan/>
-            <SearchBar/>
+        <div>
+            <div className="header-frame">
+                <Slogan />
+                <SearchBar className="searchBar" />
+            </div>
+
         </div>
+
     )
 }
 
