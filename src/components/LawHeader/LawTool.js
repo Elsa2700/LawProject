@@ -1,3 +1,4 @@
+
 import React from 'react';
 import '../../style/LawInfo.css'
 
@@ -31,3 +32,4 @@ class LawTool extends React.Component {
 }
 
 export default LawTool;
+

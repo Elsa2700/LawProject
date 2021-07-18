@@ -1,3 +1,4 @@
+
 import React from 'react';
 import NavBar from '../components/Navbar/nav';
 import Root from '../components/Navbar/root';
@@ -13,6 +14,7 @@ const MyNote = () =>{
 
     )
 }
+
 
 
 export default MyNote;

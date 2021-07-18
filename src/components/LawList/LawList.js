@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, Fragment } from 'react';
 import NavBar from '../Navbar/nav';
 import Header from '../Header/header';
@@ -212,6 +213,7 @@ const LawList = (props) => {
 
 
 };
+
 
 
 export default LawList;

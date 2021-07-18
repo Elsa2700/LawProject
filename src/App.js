@@ -1,3 +1,4 @@
+
 import React from 'react'
 import HomePage from './page/HomePage'
 import LawInfo from './page/LawInfo'
@@ -29,6 +30,7 @@ class App extends React.Component {
         )
     }
 }
+
 
 
 

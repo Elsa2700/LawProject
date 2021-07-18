@@ -1,3 +1,4 @@
+
 /* LawTool */
 .tool-frame{
     padding-right: 200px;
@@ -195,4 +196,5 @@ i.arrow.circle.icon{
     0% {transform:translateY(0%)}
     50% {transform:translateY(10%)}
   }
+
 

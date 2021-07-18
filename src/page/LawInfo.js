@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import NavBar from '../components/Navbar/nav';
 import Header from '../components/Header/header';
@@ -21,6 +22,7 @@ const LawInfo = (props) => {
         </div>
     )
 }
+
 
 
 export default LawInfo;

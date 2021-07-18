@@ -1,3 +1,4 @@
+
 import React from 'react';
 import '../../style/LawInfo.css';
 // ES6 Imports

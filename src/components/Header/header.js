@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Slogan from './slogan';
 import SearchBar from './searchbar';
@@ -14,5 +15,6 @@ const Header = () => {
 
     )
 }
+
 
 export default Header;

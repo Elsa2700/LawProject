@@ -1,3 +1,4 @@
+
 import React from 'react';
 import NavBar from '../components/Navbar/nav'
 import Root from '../components/Navbar/root'
@@ -21,6 +22,7 @@ class HomePage extends React.Component {
 
     }
 }
+
 
 
 export default HomePage;
