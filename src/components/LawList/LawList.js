@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, Fragment } from 'react';
 import NavBar from '../Navbar/nav';
 import Header from '../Header/header';
@@ -86,6 +85,9 @@ const LawList = (props) => {
                 const items = querySnapshot.docs.map((doc) => ({ key: doc.id, ...doc.data() }));
                 setList(items);
                 setPage(page + 1); //in case you like to show current page number you can use this
+                console.log('item',item);
+                console.log('page',page);
+                console.log('items',items);
 
             });
     };
@@ -102,6 +104,9 @@ const LawList = (props) => {
                 const items = querySnapshot.docs.map((doc) => ({ key: doc.id, ...doc.data() }));
                 setList(items);
                 setPage(page - 1); //in case you like to show current page number you can use this
+                console.log('item',item);
+                console.log('page',page);
+                console.log('items',items);
 
             });
     };
@@ -143,7 +148,6 @@ const LawList = (props) => {
         if (keyword == '') {
             fetchLevelNextData(item);
         } else {
-
             fetchSearchNextData(item);
 
         }
@@ -204,8 +208,6 @@ const LawList = (props) => {
                     </thead>
                     {laws}
                 </table>
-
-
             </div>
             <Root />
         </div>
@@ -213,7 +215,6 @@ const LawList = (props) => {
 
 
 };
-
 
 
 export default LawList;
