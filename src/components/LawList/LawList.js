@@ -6,28 +6,20 @@ import { firestore } from '../../database/firebase-service';
 import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import '../../style/LawList.css'
-
-
 const LawList = (props) => {
-
     //初始化
     const [list, setList] = useState([]);
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(0);
     const [num, setNum] = useState(0);
-
     const location = useLocation();
-
     const query = new URLSearchParams(useLocation().search);
-    console.log(useLocation().search)
     const level = query.get('level')
     let levelcz = ''
     let keyword = ''
-
     if (useLocation().search == '') {
         keyword = props.location.state.keyword
     } else {
         if (level === 'constitution') {
-            console.log("憲法")
             levelcz = '憲法'
         }
         else if (level === 'law') {
@@ -36,7 +28,6 @@ const LawList = (props) => {
             levelcz = '命令'
         }
     }
-
     //loading initial data
     useEffect(() => {
         const fetchLevelData = async () => {
@@ -50,7 +41,6 @@ const LawList = (props) => {
                     setList(data)
                 });
         };
-
         const fetchSearchData = async () => {
             await firestore
                 .collection('lawData')
@@ -72,7 +62,6 @@ const LawList = (props) => {
             fetchSearchData();
         }
     }, []);
-
     //next button function
     const fetchLevelNextData = async (item) => {
         await firestore
@@ -85,18 +74,12 @@ const LawList = (props) => {
                 const items = querySnapshot.docs.map((doc) => ({ key: doc.id, ...doc.data() }));
                 setList(items);
                 setPage(page + 1); //in case you like to show current page number you can use this
-                console.log('item',item);
-                console.log('page',page);
-                console.log('items',items);
-
             });
     };
-
-
     const fetchLevelPreviousData = async (item) => {
         await firestore
             .collection('lawData')
-            .limitToLast(10)
+            .limit(10)
             .where('LawLevel', '==', levelcz)
             .orderBy('LawCategory', 'desc')
             .endBefore(item.LawCategory) //we pass props item's first created timestamp to do start after you can change as per your wish
@@ -104,10 +87,6 @@ const LawList = (props) => {
                 const items = querySnapshot.docs.map((doc) => ({ key: doc.id, ...doc.data() }));
                 setList(items);
                 setPage(page - 1); //in case you like to show current page number you can use this
-                console.log('item',item);
-                console.log('page',page);
-                console.log('items',items);
-
             });
     };
     //next button function
@@ -125,8 +104,6 @@ const LawList = (props) => {
                 setPage(page + 1); //in case you like to show current page number you can use this
             });
     };
-
-
     const fetchSearchPreviousData = async (item) => {
         await firestore
             .collection('lawData')
@@ -141,27 +118,21 @@ const LawList = (props) => {
                 setPage(page - 1); //in case you like to show current page number you can use this
             });
     };
-
-
-
-    const showNext = ({ item }) => {
-        if (keyword == '') {
+    const showNext = (item) => {
+        if (keyword === '') {
             fetchLevelNextData(item);
         } else {
             fetchSearchNextData(item);
-
         }
     };
-
-    const showPrevious = ({ item }) => {
-        if (keyword == '') {
+    const showPrevious = (item) => {
+        if (!item) return
+        if (keyword === '') {
             fetchLevelPreviousData(item);
-
         } else {
             fetchSearchPreviousData(item);
         }
     };
-
     const laws = list.map(({ keyid, LawName, LawModifiedDate, LawHistories, LawCategory, LawURL, LawArticles }) => {
         return (
             <tbody>
@@ -183,15 +154,15 @@ const LawList = (props) => {
         <div>
             <NavBar />
             <div className="page-btn">
-                <button className='ui huge left labeled icon button' onClick={() => showPrevious({ item: list[0] })}>
+                <button className='ui huge left labeled icon button' onClick={() => showPrevious(list[page - 1])}>
                     <i className="left arrow icon"></i>
                     上一頁
                 </button>
-                <button className='ui huge right labeled icon button' onClick={() => showNext({ item: list[list.length - 1] })}>
+                <button className='ui huge right labeled icon button' onClick={() => showNext(list[page + 1])}>
                     <i className="right arrow icon"></i>
                     下一頁
                 </button>
-                <div className="page-info"><span className="now">第{page}頁</span></div>
+                <div className="page-info"><span className="now">第{page + 1}頁</span></div>
             </div>
             <div className="laws-list-frame">
                 <table className="ui celled table">
@@ -212,9 +183,5 @@ const LawList = (props) => {
             <Root />
         </div>
     )
-
-
 };
-
-
 export default LawList;
