@@ -2,7 +2,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 // load law data
-import lawData from "../data/AllLaw.json"
+import lawData from "../data/AllLaw_worddb_f.json"
 
 
 for(let i=0; i<=lawData.Laws.length; i++){
