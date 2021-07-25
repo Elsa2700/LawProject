@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 //firebase
 import firebase from "firebase/app";
 import "firebase/firestore";
@@ -22,6 +23,31 @@ for(let i=0; i<=lawData.Laws.length; i++){
 
 
 
+=======
+//firebase
+import firebase from "firebase/app";
+import "firebase/firestore";
+// load law data
+import lawData from "../data/AllLaw_worddb_f.json"
+
+
+for(let i=0; i<=lawData.Laws.length; i++){
+    // initialize Firebase
+    if (!firebase.apps.length) {
+        firebase.initializeApp({firebaseConfig});
+    }
+    firestore.collection("lawData").add(lawData.Laws[i])
+    .then((docRef) => {
+        console.log("ID名稱: ", docRef.id);
+    })
+    .catch((error)=>{
+        console.log("ERROR adding document: ", error);
+    })
+}
+
+
+
+>>>>>>> bc7b50a18429570edd6b63390ad17d10af380462
 =======
 //firebase
 import firebase from "firebase/app";
