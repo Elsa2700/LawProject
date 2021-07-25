@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { firestore } from '../../database/firebase-service'
 import { BrowserRouter as Router, Link, useLocation } from "react-router-dom";
@@ -59,4 +58,3 @@ class LawMenu extends React.Component {
 
 
 export default LawMenu;
-

@@ -6,6 +6,8 @@ import * as Scroll from 'react-scroll';
 import { Link } from 'react-router-dom';
 import Scrollspy from 'react-scrollspy';
 import ScrollIntoView from 'react-scroll-into-view';
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 
 
@@ -22,7 +24,12 @@ let scrollSpy = Scroll.scrollSpy;
 
 
 const LawMain = (props) => {
+    console.log(props)
 
+    // const location = useLocation();
+    // const query = new URLSearchParams(useLocation().search);
+    const FontSize = 'FontLarge'
+    // console.log(FontSize)
 
     const Chapter = props.LawInfo.LawArticles.map(({ keyid, ArticleType, ArticleContent, ArticleNo }) => {
 
@@ -60,11 +67,12 @@ const LawMain = (props) => {
                 )
             }
         } else {
+            //小: 3em 中:3.5em 大:4em
             return (
                 <div>
-                    <div className="LawMain-item">
+                    <div className={`LawMain-item ${FontSize}`}>
                         <div>
-                            <header>{ArticleNo}</header>
+                            <header >{ArticleNo}</header>
                             <p>{ArticleContent}</p>
                         </div>
 
@@ -91,7 +99,7 @@ const LawMain = (props) => {
                 {Chapter}
             </div>
 
-            <div class="ui horizontal divider"><i class="massive chess knight icon"></i></div>
+            <div className="ui horizontal divider"><i className="massive chess knight icon"></i></div>
             <div className="LawMain-frame">
                 {Main}
             </div>
