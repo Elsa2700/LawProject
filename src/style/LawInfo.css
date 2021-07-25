@@ -155,6 +155,16 @@
     
 
 }
+.FontLarge{
+    font-size: 4em;
+}
+.FontMid{
+    font-size: 3.5em;
+}
+.FontSmall{
+    font-size: 3em;
+}
+
 .LawMain-item header{
     margin: 20px;
     font-weight: bold;
