@@ -11,7 +11,7 @@ const NavBar = () => {
                 <Link to='/mynote'><li>我的筆記</li></Link>
             </ul>
             <ul className="member-frame">
-                <Link to='/'><li className="member-frame-style" >登入</li></Link>
+                <Link to='/signup'><li className="member-frame-style" >登入</li></Link>
                 <Link to='/'><li className="member-frame-style" >註冊</li></Link>
             </ul>
         </div>

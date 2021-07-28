@@ -11,23 +11,13 @@ import { BrowserRouter as Router, Switch, Route, useParams } from "react-router-
 const ThemeContext = React.createContext('light');
 
 
-const LawInfo = (props) => {
-    console.log(props.location.state.lawinfo) //需要傳遞的陣列資料
-    const [listLawInfo, setlistLawInfo] = useState([]); //建立list存需要存陣列資料
-
-    useEffect(() => {
-        setlistLawInfo(props.location.state.lawinfo);
-        console.log(listLawInfo);  //有陣列資料
-    }, [props.location.state.lawinfo]);
-
-    console.log('list',listLawInfo) //無陣列資料
+const LawInfo = ({location}) => {
   
     return (
         <div>
             <NavBar />
-            <LawTool />
-            <LawHeader/>
-            <LawMain LawInfo={listLawInfo} />
+            <LawHeader LawInfo={location.state.lawinfo} />
+            <LawMain LawInfo={location.state.lawinfo} />
             <Root />
         </div>
     )

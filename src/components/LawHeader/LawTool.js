@@ -1,22 +1,20 @@
-
-import React from 'react';
 import '../../style/LawInfo.css';
 import { Link } from 'react-router-dom';
+import { propTypes } from 'react-bootstrap/esm/Image';
+import React, { useEffect, useState } from 'react';
 
 
 
-const LawTool = () => {
+const LawTool = ({setFontSize}) => {
 
     return (
         <div className="tool-frame">
             <div className="font-tool">
                 <span>字體</span>
                 <div className="ui buttons">
-                    <Link to='/LawInfo?size=FontLarge' >
-                        <button className="ui button">大</button>
-                    </Link>
-                    <Link><button className="ui button">中</button></Link>
-                    <Link><button className="ui button">小</button></Link>
+                    <button className="ui button" onClick={() => setFontSize('FontLarge')}>大</button>
+                    <button className="ui button" onClick={() => setFontSize('FontMid')}>中</button>
+                    <button className="ui button" onClick={() => setFontSize('FontSmall')}>小</button>
                     
                 </div>
             </div>

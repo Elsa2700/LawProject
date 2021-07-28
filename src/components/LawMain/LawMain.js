@@ -1,5 +1,4 @@
 
-import React from 'react';
 import '../../style/LawInfo.css';
 // ES6 Imports
 import * as Scroll from 'react-scroll';
@@ -7,7 +6,8 @@ import { Link } from 'react-router-dom';
 import Scrollspy from 'react-scrollspy';
 import ScrollIntoView from 'react-scroll-into-view';
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import LawTool from '../LawHeader/LawTool';
 
 
 
@@ -23,15 +23,12 @@ let scrollSpy = Scroll.scrollSpy;
 
 
 
-const LawMain = (props) => {
-    console.log(props)
+const LawMain = ({LawInfo}) => {
+    const [fontSize, setFontSize] = useState('')
 
-    // const location = useLocation();
-    // const query = new URLSearchParams(useLocation().search);
-    const FontSize = 'FontLarge'
-    // console.log(FontSize)
 
-    const Chapter = props.LawInfo.LawArticles.map(({ keyid, ArticleType, ArticleContent, ArticleNo }) => {
+
+    const Chapter = LawInfo.LawArticles.map(({ keyid, ArticleType, ArticleContent, ArticleNo }) => {
 
         if (ArticleType == 'C') {
             const scrollLaw = (() => {
@@ -53,7 +50,7 @@ const LawMain = (props) => {
         }
     })
 
-    const Main = props.LawInfo.LawArticles.map(({ ArticleType, ArticleContent, ArticleNo }) => {
+    const Main = LawInfo.LawArticles.map(({ ArticleType, ArticleContent, ArticleNo }) => {
 
         if (ArticleType == 'C') {
             if (ArticleContent.search("章") == -1) {
@@ -70,7 +67,7 @@ const LawMain = (props) => {
             //小: 3em 中:3.5em 大:4em
             return (
                 <div>
-                    <div className={`LawMain-item ${FontSize}`}>
+                    <div className={`LawMain-item ${fontSize}`}>
                         <div>
                             <header >{ArticleNo}</header>
                             <p>{ArticleContent}</p>
@@ -95,6 +92,7 @@ const LawMain = (props) => {
 
     return (
         <div>
+             <LawTool setFontSize={setFontSize} />
             <div id='topIcon' className="lawchapter-frame">
                 {Chapter}
             </div>

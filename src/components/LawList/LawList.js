@@ -242,3 +242,4 @@ const LawList = (props) => {
         </div>
     )
 };
+export default LawList;
