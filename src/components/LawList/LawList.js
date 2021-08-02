@@ -5,11 +5,11 @@ import Root from '../Navbar/root';
 import { firestore } from '../../database/firebase-service';
 import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
-import '../../style/LawList.css'
+import '../../style/LawList.css';
+
 
 
 const LawList = (props) => {
-
     //初始化
     const [list, setList] = useState([]);
     const [showResults, setShowResults] = React.useState(false)

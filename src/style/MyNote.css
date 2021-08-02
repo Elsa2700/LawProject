@@ -1,0 +1,140 @@
+.MyNote-frame{
+    margin: auto;
+    margin-top: 210px;
+    margin-bottom: 50px;
+    display: flex;
+    width:95vw;
+    height: 70vh;
+    justify-content:space-evenly;
+    align-items: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 41px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.NoteList{
+    width: 20%;
+    height: 100%;
+    padding: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+
+}
+.trash.alternate{
+    position: absolute;
+    bottom:20px;
+    right: 10px;
+}
+.NoteMain{
+    height: 100%;
+    background-color: rgba(199, 188, 188, 0.19);
+    width: 75%;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+      
+
+}
+.MyNote-frame p{
+    font-size: 28px;
+}
+.MyNote-frame h1{
+    font-size: 36px;
+    font-weight: bolder;
+}
+
+.MyMainLaw{
+    margin: 10px;
+    background-color: rgba(173, 182, 120, 0.56);
+    border-radius: 6px;
+    padding: 20px;
+    overflow: scroll;
+    
+}
+.MyMainNote{
+    flex:auto; 
+    margin: 10px;
+    border-radius: 6px;
+    background-color:rgba(229, 229, 229, 1);
+    padding: 20px;
+    position: relative;
+
+}
+.textarea:focus{
+    outline: none;
+}
+.textarea{
+    font-size: 28px;
+    height: 330px;
+    margin:10px;
+    width: 900px;
+    resize: none;
+    background-color: rgba(0, 0, 0, 0); 
+    border-color: rgba(0, 0, 0, 0);
+
+}
+.MyMainNote-btn{
+    background-color: #455CD0;
+    color:#FDFAF4;
+    width: 130px;
+    height: 50px;
+    font-size: 28px;
+    font-weight: bolder;
+    border: none;
+    position: absolute;
+    right: 30px;
+    top:25px;
+}
+.MyMainNote-col{
+    position: absolute;
+    right: 30px;
+    bottom:25px;
+    height: 60px;
+    width: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.MyMainNote-type{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgb(73, 71, 71);
+}
+.MyMainNote-col1{
+    background-color:#83DEDE;
+}
+.MyMainNote-col2{
+    background-color:#F5E763;
+}
+.MyMainNote-col3{
+    background-color:#F3C3A1;
+}
+.MyMainNote-col4{
+    background-color:#FF8989;
+}
+.col-focus{
+    border:8px solid rgba(50, 50, 61, 0.9);
+}
+
+
+
+
+.item {
+    position: relative;
+    height: 250px;
+    width: 250px;
+    margin-bottom: 10px;
+    line-height: 20px;
+    overflow: hidden;
+    color: rgb(73, 80, 80);
+    padding: 20px;
+    flex-shrink: 0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  

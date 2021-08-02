@@ -1,10 +1,10 @@
-import React, {createContext, Component} from 'react';
-import {auth}  from '../../../database/firebase-service';
+import React, {Component} from 'react';
 import Context from '../../../context';
+import LawInfo from '../../../page/LawInfo';
 
 
-class AuthContextProvider extends Component{
-    state = {user: []}
+class LawContextProvider extends Component{
+    state = {law: []}
     componentDidMount() {
         auth.onAuthStateChanged((user) => {
             if (user.email === this.state.email) {
@@ -24,4 +24,4 @@ class AuthContextProvider extends Component{
     }
 }
 
-export default AuthContextProvider;
+export default LawContextProvider;

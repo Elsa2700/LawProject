@@ -19,6 +19,9 @@ body{
     position: fixed;
     top: 0px;
 }
+.Signin{
+    background-color: aqua;
+}
 
 
 .menu-frame{
@@ -172,6 +175,9 @@ body{
 }
 .ui.icon.input>i.icon:not(.link){
     pointer-events:auto
+}
+.ui.icon.input>a{
+    text-decoration: none;
 }
 input.SearchInput{
     background-color: rgb(126, 103, 10);

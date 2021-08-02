@@ -9,24 +9,14 @@ import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import LawTool from '../LawHeader/LawTool';
 
-
-
-
-// Or Access Link,Element,etc as follows
-
-
 let Element = Scroll.Element;
 let Events = Scroll.Events;
 let scroll = Scroll.animateScroll;
 let scrollSpy = Scroll.scrollSpy;
 
-
-
-
 const LawMain = ({LawInfo}) => {
+    console.log('法條內容資訊',{LawInfo})
     const [fontSize, setFontSize] = useState('')
-
-
 
     const Chapter = LawInfo.LawArticles.map(({ keyid, ArticleType, ArticleContent, ArticleNo }) => {
 
@@ -50,7 +40,7 @@ const LawMain = ({LawInfo}) => {
         }
     })
 
-    const Main = LawInfo.LawArticles.map(({ ArticleType, ArticleContent, ArticleNo }) => {
+    const Main = LawInfo.LawArticles.map(({  ArticleType, ArticleContent, ArticleNo }) => {
 
         if (ArticleType == 'C') {
             if (ArticleContent.search("章") == -1) {
@@ -75,7 +65,8 @@ const LawMain = ({LawInfo}) => {
 
                         <div>
                             <Link to={{
-                                pathname: '/mynote'
+                                pathname: '/mynote',
+                                state:{lawnote:{ArticleType, ArticleContent, ArticleNo}}
                             }}>
                                 <i className="large gray bookmark icon"></i>
 
