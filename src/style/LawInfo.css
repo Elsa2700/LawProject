@@ -1,4 +1,5 @@
 
+@media screen and (min-width: 1200px){
 /* LawTool */
 .tool-frame{
     padding-right: 200px;
@@ -46,7 +47,6 @@
 
 }
 
-/* LawHeader */
 
 .LawHeader-frame{
     width: 80%;
@@ -163,7 +163,9 @@
 .FontSmall{
     font-size: 3em;
 }
-
+.read-tool{
+    display: none;
+}
 .LawMain-item header{
     margin: 20px;
     font-weight: bold;
@@ -197,6 +199,29 @@ i.arrow.circle.icon{
 }
 .gray.bookmark.icon{
     color: rgb(92, 90, 89);
+
+}
+.gray.bookmark.icon:hover{
+    transform: scale(1.3);
+}
+#bookmark:hover .add-text{
+    visibility:visible;
+    /* background-color: rgb(184, 195, 199) !important; */
+
+}
+.add-text{
+    background-color: rgb(236, 233, 15);
+    padding: 10px;
+    font-size: 22px;
+    color: rgb(80, 76, 67);
+    font-weight: bold;
+    text-decoration: none !important;
+    border-radius: 20px;
+    visibility:hidden;
+    position: absolute;
+    right: 70px;
+    top:-20px;
+
 }
 .arrowIcon{
     width: 100px;
@@ -207,5 +232,230 @@ i.arrow.circle.icon{
     0% {transform:translateY(0%)}
     50% {transform:translateY(10%)}
   }
+}
+@media screen and (min-width: 360px)and (max-width: 1200px){
+/* LawTool */
+.tool-frame{
 
+    position: absolute;
+    width: 90%;
+    margin: auto;
+    top:150px;
+    height: 100px;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight:bolder;
+    text-align: center;
+    color: #00000069;
+
+}
+.tool-frame span{
+
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.font-tool .ui.buttons .button {
+
+    border: 3px solid #A99D9D;
+    background-color: rgba(240, 255, 255, 0);
+    margin: 5px;
+    font-size: 30px;
+    padding: 6px;
+}
+.read-tool{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.read-tool .ui.buttons{
+    margin: 5px;
+
+}
+
+
+.LawHeader-frame{
+
+    width: 90%;
+    margin: 20px auto;
+    margin-top:300px;
+    background-color: rgba(217, 230, 195, 0.6);
+    border-radius: 20px;
+    padding: 30px 20px 20px;
+}
+.LawHeader-frame header{
+    margin-bottom: 40px;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight:bolder;
+    line-height: 53px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.LawHeader-frame span{
+    display: block;
+    margin-left: 15px;
+    font-family: Roboto;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+/* LawChapter */
+.lawchapter-frame{
+    text-align: center;
+    width: 90%;
+    margin:auto;
+}
+
+.lawchapter-frame .ui.button{
+    margin:5px auto;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight:bolder;
+    text-align: left;
+    
+    color: #00000069;
+   
+}
+.ui.button.section{
+    background-color:#FDFAF4;  
+    line-height: 10px;
+}
+
+.LawMain-chapter{
+    margin:10px auto;
+    font-family: Roboto;
+    font-size: 35px;
+    font-style: normal;
+    font-weight:bolder;
+
+
+}
+.LawMain-section{
+    color: rgb(43, 114, 93);
+    margin:30px auto;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: bolder;
+
+}
+
+.LawMain-frame{
+    width: 95%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 300px;
+    
+}
+.LawMain-item{
+    margin:auto;
+    width: 90%;
+    display: flex;
+    justify-content:space-between;
+    margin-top:50px;
+    border: 3px solid #00000044;
+    border-radius: 10px;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    line-height: 4px !important;
+    text-align: left;
+    position: relative;
+    
+
+}
+.FontLarge{
+    font-size: 4em;
+}
+.FontMid{
+    font-size: 3.5em;
+}
+.FontSmall{
+    font-size: 3em;
+}
+.read-tool{
+    display: none;
+}
+.LawMain-item header{
+    margin: 30px;
+    font-weight: bold;
+    
+}
+.LawMain-item p{
+    width: 100%;
+    padding: 20px;
+    line-height: 35px;
+    word-wrap: break-word;
+    white-space:pre-wrap;
+}
+.LawMain-frame i{
+    cursor: pointer;
+    margin-right: 10px;
+
+}
+i.arrow.circle.icon{
+    font-size: 40px;
+    z-index: 10;
+    color: rgb(138, 223, 226);
+    position: fixed;
+    bottom: 13px;
+    left: 50px;
+    cursor: pointer;
+    display: inline-block;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.2))
+    
+    
+
+}
+.gray.bookmark.icon{
+    color: rgb(150, 147, 146);
+
+}
+.gray.bookmark.icon:hover{
+    transform: scale(1.3);
+}
+#bookmark:hover .add-text{
+    visibility:visible;
+    /* background-color: rgb(184, 195, 199) !important; */
+
+}
+.add-text{
+    background-color: rgb(236, 233, 15);
+    padding: 10px;
+    font-size: 22px;
+    color: rgb(80, 76, 67);
+    font-weight: bold;
+    text-decoration: none !important;
+    border-radius: 20px;
+    visibility:hidden;
+    position: absolute;
+    right: 70px;
+    top:-20px;
+
+}
+.arrowIcon{
+    width: 100px;
+}
+
+
+  @keyframes example {
+    0% {transform:translateY(0%)}
+    50% {transform:translateY(10%)}
+  }
+}
 

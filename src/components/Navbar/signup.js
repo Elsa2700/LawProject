@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react'
 import useAuth from './contexts/AuthContext';
 import { auth } from '../../database/firebase-service';
 import { Link, useHistory } from 'react-router-dom';
-import HomePage from '../../page/HomePage';
 
 
 const Signup = () => {
@@ -18,7 +17,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-            return setError('密碼不符 😓')
+            return setError('驗證密碼不吻合 😓')
         }
         try {
             setError('')
@@ -29,7 +28,7 @@ const Signup = () => {
 
 
         } catch (error) {
-            setError(error.messag)
+            setError('帳號請輸入正確信箱，密碼請輸入8個以上的數字或文字')
         }
         setLoading(false)
     }

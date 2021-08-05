@@ -7,7 +7,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 
 
-const Logout = () => {
+const LogIn = () => {
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
@@ -27,7 +27,7 @@ const Logout = () => {
 
         } catch (error) {
             console.log(error.message)
-            setError('登入失敗 😓')
+            setError('帳號密碼有誤 😓')
         }
         setLoading(false)
     }
@@ -62,4 +62,4 @@ const Logout = () => {
     )
 }
 
-export default Logout;
+export default LogIn;

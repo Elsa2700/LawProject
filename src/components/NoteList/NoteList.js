@@ -3,11 +3,12 @@ import Context from '../../context';
 import { firestore } from '../../database/firebase-service';
 import { Link } from 'react-router-dom';
 import NoteMain from '../NoteMain/NoteMain';
+import Loading from '../Loading/Loading';
 
-const NoteList = ({parentcallback}) => {
+const NoteList = ({ parentcallback }) => {
     const { user } = useContext(Context);
     const [Item, setItem] = useState([]);
-    const [openBox, setOpenBox] =useState(false);
+    const [openBox, setOpenBox] = useState(false);
 
     useEffect(() => {
         const fetchUserData = () => {
@@ -50,8 +51,8 @@ const NoteList = ({parentcallback}) => {
     const buildItems = Item.map((item) => {
         console.log(item)
         return (
-            <div className='note-list-frame' 
-            onClick={()=>{setOpenBox(!openBox);parentcallback(openBox,Item,item)}} Item={Item}>
+            <div className='note-list-frame'
+                onClick={() => { setOpenBox(!openBox); parentcallback(openBox, Item, item) }} Item={Item}>
 
                 <div className={`item ${item.noteColor}`} key={item}>
                     <div className='notelist-frame'>
@@ -68,14 +69,24 @@ const NoteList = ({parentcallback}) => {
         )
     })
 
+    const Box = () => {
+        return (
+            <div className='box'>
+                <i className="massive inbox icon"></i>
+            </div>
 
+        )
+    }
 
     return (
-        <div className='NoteList' onScroll={handleScroll()}>
-            <div>{buildItems}</div>
+        <div className='NoteList-frame'>
+            {Item.length == 0 ? <Loading /> : ''}
+            <div className='NoteList' onScroll={handleScroll()}>
+                {Item.length == 0 ? <Box /> : ''}
+                    < div > { buildItems }</div>
         </div>
+        </div >
     )
 }
-
 
 export default NoteList;

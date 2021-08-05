@@ -9,14 +9,14 @@ import MyBlank from './page/MyBlank';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Signup from './components/Navbar/signup';
 import { Container } from 'react-bootstrap';
-import Login from './components/Navbar/login';
+import LogIn from './components/Navbar/login';
 import AuthContextProvider from './components/Navbar/contexts/AuthContext';
 
 
 class App extends React.Component {
     render() {
         return (
-            <Router basename='/'>
+            <Router basename="/build/index.html">
                 <AuthContextProvider>
                     <Switch>
                         <Container
@@ -28,9 +28,9 @@ class App extends React.Component {
                                     <Signup />
                                 </div>
                             </Route>
-                            <Route path='/login' component={Login}>
+                            <Route path='/login' component={LogIn}>
                                 <div className='w-100' style={{ maxWidth: '400px' }}>
-                                    <Login />
+                                    <LogIn />
                                 </div>
                             </Route>
                             <Route path='/' exact component={HomePage}>

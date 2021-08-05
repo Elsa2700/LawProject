@@ -8,6 +8,7 @@ import NoteList from '../components/NoteList/NoteList';
 import '../style/MyNote.css';
 import MynoteInfo from './MynoteInfo';
 import { useLocation } from 'react-router-dom';
+import Loading from '../components/Loading/Loading';
 
 
 
@@ -36,6 +37,7 @@ const MyNote = ({ location }) => {
     return (
         <div>
             <NavBar />
+            
             <div className='MyNote-frame'>
                 <NoteList parentcallback={callback} />
                 <div className={`noteMain-frame ${Box}`}>

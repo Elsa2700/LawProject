@@ -5,6 +5,7 @@ import { firestore } from '../../database/firebase-service';
 import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import '../../style/LawList.css';
+import Loading from '../Loading/Loading';
 
 
 
@@ -19,7 +20,7 @@ const LawList = React.memo(() => {
     const level = query.get('level');
     const keywordsearch = query.get('keyword');
     let levelcz = '';
-    let keyword ='';
+    let keyword = '';
 
     if (!keywordsearch) {
         if (level === 'constitution') {
@@ -30,10 +31,10 @@ const LawList = React.memo(() => {
         } else {
             levelcz = '命令'
         }
-    }else{
+    } else {
         keyword = keywordsearch
     }
-    
+
     //loading initial data
     useEffect(() => {
         const fetchLevelData = () => {
@@ -45,10 +46,11 @@ const LawList = React.memo(() => {
                 .get().then((documentSnapshots) => {
                     const data = documentSnapshots.docs.map((doc) => ({ ...doc.data(), keyid: doc.id }))
                     setList(data);
+
                     const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
                 });
         };
-        
+
 
         //關鍵字搜尋=====================
         const fetchSearchData = () => {
@@ -150,10 +152,11 @@ const LawList = React.memo(() => {
 
 
     //上下頁
+    
     const ShowNext = (item) => {
         if (!item) {
-            alert('已查無資料')
-            return (setShowResults(true))
+
+            return 
         }
 
         if (keyword === '') {
@@ -203,46 +206,57 @@ const LawList = React.memo(() => {
         )
     })
 
+    const TableList = () => {
+        return (
+            <>
+                <i className="grey huge balance scale icon"></i>
+                <table className="ui celled table">
+                    <thead>
+                        <tr>
+                            <th colSpan="6" style={{ textAlign: 'start', paddingLeft: '100px', fontSize: '38px' }} >{levelcz}{keyword}
+                            </th>
+                        </tr>
+                        <tr className='table-title' style={{ backgroundColor: 'rgba(197, 227, 225, 0.24)', fontSize: '10px' }}>
+                            <td colSpan="2" >查詢</td>
+                            <td colSpan="1" >法規名稱</td>
+                            <td colSpan="1">類別</td>
+                            <td colSpan="2">修改日期</td>
+                        </tr>
+                    </thead>
+                    {laws}
+                </table>
+            </>
+        )
+    }
 
     return (
-        <div>
-            <NavBar />
-            <div className="page-btn">
-                <button className='ui huge left labeled icon button' onClick={() => showPrevious(prevFirstItem[page - 1])}>
-                    <i className="left arrow icon"></i>
-                    上一頁
-                </button>
-                <button className='ui huge right labeled icon button' onClick={() => ShowNext(list[list.length - 1])}>
-                    <i className="right arrow icon"></i>
-                    下一頁
-                </button>
-                <div className="page-info"><span className="now">第{page + 1}頁</span></div>
-            </div>
-
-            <Fragment>
-                <div className="laws-list-frame">
-                    <i className="grey huge balance scale icon"></i>
-                    <table className="ui celled table">
-                        <thead>
-                            <tr>
-                                <th colSpan="6" style={{ textAlign: 'start', paddingLeft: '100px', fontSize: '38px' }} >{levelcz}{keyword}
-                                </th>
-                            </tr>
-                            <tr style={{ backgroundColor: 'rgba(197, 227, 225, 0.24)', fontSize: '10px' }}>
-                                <td colSpan="2" >查詢</td>
-                                <td colSpan="1" >法規名稱</td>
-                                <td colSpan="1">類別</td>
-                                <td colSpan="2">修改日期</td>
-                            </tr>
-                        </thead>
-                        {laws}
-                    </table>
-                    <div>{showResults ? <NoData /> : null}</div>
+        <>
+            <div>
+                <NavBar />
+                {list.length == 0 ? <Loading /> : ''}
+                <div className="page-btn">
+                    <button className='ui huge left labeled icon button' onClick={() => showPrevious(prevFirstItem[page - 1])}>
+                        <i className="left arrow icon"></i>
+                        上一頁
+                    </button>
+                    <button className='ui huge right labeled icon button' onClick={() => ShowNext(list[list.length - 1])}>
+                        <i className="right arrow icon"></i>
+                        下一頁
+                    </button>
+                    <div className="page-info"><span className="now">第{page + 1}頁</span></div>
                 </div>
-            </Fragment >
 
-            <Root />
-        </div>
+                <Fragment>
+                    <div className="laws-list-frame">
+                        <div>
+                            {list.length==0 ? <NoData /> : <TableList />}
+                        </div>
+                    </div>
+                </Fragment >
+
+                <Root />
+            </div>
+        </>
     )
 });
 export default LawList;

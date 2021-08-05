@@ -2,7 +2,7 @@
 import '../../style/LawInfo.css';
 import { Link } from 'react-router-dom';
 import ScrollIntoView from 'react-scroll-into-view';
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import LawTool from '../LawHeader/LawTool';
 
 
@@ -54,13 +54,15 @@ const LawMain = ({ LawInfo }) => {
                             <header >{ArticleNo}</header>
                             <p>{ArticleContent}</p>
                         </div>
-                        <div>
+                        <div id='bookmark'>
                             <Link to={{
                                 pathname: '/mynote',
                                 state: { lawnote: { lawKey, ArticleType, ArticleContent, ArticleNo } }
                             }}>
                                 <i className="large gray bookmark icon"></i>
+
                             </Link>
+                            <div className="add-text">加入我的蒐藏</div>
                         </div>
                     </div>
                 </div>
@@ -71,14 +73,14 @@ const LawMain = ({ LawInfo }) => {
     return (
         <div>
             <LawTool setFontSize={setFontSize} />
-            <div id='topIcon' className="lawchapter-frame">
+            <div className="lawchapter-frame">
                 {Chapter}
             </div>
             <div className="ui horizontal divider"><i className="massive chess knight icon"></i></div>
             <div className="LawMain-frame">
                 {Main}
             </div>
-            <ScrollIntoView selector="#topIcon" className='arrowIcon'>
+            <ScrollIntoView selector="#topIcon" smooth='true' alignToTop='true' className='arrowIcon'>
                 <i className="arrow massive alternate circle up icon" ></i>
             </ScrollIntoView>
         </div>

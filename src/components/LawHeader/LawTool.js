@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react';
 const LawTool = ({setFontSize}) => {
 
     return (
-        <div className="tool-frame">
+        <div className="tool-frame"  id='topIcon'>
             <div className="font-tool">
                 <span>字體</span>
                 <div className="ui buttons">
