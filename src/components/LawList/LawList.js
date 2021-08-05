@@ -1,6 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import NavBar from '../Navbar/nav';
-import Header from '../Header/header';
 import Root from '../Navbar/root';
 import { firestore } from '../../database/firebase-service';
 import { Link } from 'react-router-dom';
@@ -9,21 +8,20 @@ import '../../style/LawList.css';
 
 
 
-const LawList = (props) => {
+const LawList = React.memo(() => {
     //初始化
     const [list, setList] = useState([]);
-    const [showResults, setShowResults] = React.useState(false)
+    const [showResults, setShowResults] = useState(false)
     const [prevFirstItem, setPrevFirstItem] = useState([]);
     const [lastVisible, setlastVisible] = useState([]);
     const [page, setPage] = useState(0);
-    const [num, setNum] = useState(1);
     const query = new URLSearchParams(useLocation().search);
-    const level = query.get('level')
-    let levelcz = ''
-    let keyword = ''
-    if (useLocation().search == '') { //querystring
-        keyword = props.location.state.keyword
-    } else {
+    const level = query.get('level');
+    const keywordsearch = query.get('keyword');
+    let levelcz = '';
+    let keyword ='';
+
+    if (!keywordsearch) {
         if (level === 'constitution') {
             levelcz = '憲法'
         }
@@ -32,7 +30,10 @@ const LawList = (props) => {
         } else {
             levelcz = '命令'
         }
+    }else{
+        keyword = keywordsearch
     }
+    
     //loading initial data
     useEffect(() => {
         const fetchLevelData = () => {
@@ -43,12 +44,11 @@ const LawList = (props) => {
                 .orderBy('LawCategory', 'desc')
                 .get().then((documentSnapshots) => {
                     const data = documentSnapshots.docs.map((doc) => ({ ...doc.data(), keyid: doc.id }))
-                    setList(data)
+                    setList(data);
                     const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
-                    console.log("last", lastVisible);
-                    console.log("items", data);
                 });
         };
+        
 
         //關鍵字搜尋=====================
         const fetchSearchData = () => {
@@ -60,9 +60,6 @@ const LawList = (props) => {
                     const data = documentSnapshots.docs.map((doc) => ({ ...doc.data(), keyid: doc.id }))
                     setList(data)
                     const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
-                    console.log("last", lastVisible);
-                    setNum(documentSnapshots.size);
-                    console.log(documentSnapshots.size)
                 });
         };
 
@@ -84,7 +81,6 @@ const LawList = (props) => {
         prevFirstItem[page] = list[0]
         setPrevFirstItem(prevFirstItem)
         console.log('lastVisible', lastVisible);
-        // console.log('item.LawCategory',item.LawCategory);
         firestore
             .collection('lawData')
             .limit(10)
@@ -95,8 +91,6 @@ const LawList = (props) => {
                 const items = documentSnapshots.docs.map((doc) => ({ key: doc.id, ...doc.data() }));
                 setList(items);
                 const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
-                console.log("last", lastVisible);
-                console.log("items", items);
                 setPage(page + 1);
             });
     };
@@ -115,7 +109,6 @@ const LawList = (props) => {
     };
 
     //關鍵字搜尋=====================
-    //next button function
     const fetchSearchNextData = (lastVisible) => {
         prevFirstItem[page] = list[0]
         setPrevFirstItem(prevFirstItem)
@@ -159,6 +152,7 @@ const LawList = (props) => {
     //上下頁
     const ShowNext = (item) => {
         if (!item) {
+            alert('已查無資料')
             return (setShowResults(true))
         }
 
@@ -180,31 +174,35 @@ const LawList = (props) => {
             fetchSearchPreviousData(item);
         }
     };
+
+
+
     const laws = list.map(({ keyid, LawName, LawModifiedDate, LawHistories, LawCategory, LawURL, LawArticles }) => {
         return (
-            <tbody>
-                <Fragment key={keyid}>
-                    <Link to={{
+            <Fragment>
+                <tr>
+                    <Link key={keyid} className='LawList-href' to={{
                         pathname: '/LawInfo',
                         state: { lawinfo: { keyid, LawName, LawModifiedDate, LawHistories, LawCategory, LawURL, LawArticles } }
                     }}>
-                        <tr>
-                            <td data-label="Name">{LawName}</td>
-                            <td data-label="Category">{LawCategory}</td>
-                            <td data-label="Date">{LawModifiedDate}</td>
-                        </tr>
+                        <td colSpan="2">
+                            <i className="large book icon"></i>
+                        </td>
                     </Link>
-                </Fragment >
-            </tbody>
+                    <td colSpan="2">{LawName}</td>
+                    <td colSpan="1">{LawCategory}</td>
+                    <td colSpan="2">{LawModifiedDate}</td>
+
+                </tr>
+
+            </Fragment>
+
+
+
+
         )
     })
 
-    const PageNum = () => {
-        return (
-            <span className='pageNum'>/共{num}筆搜尋結果</span>
-        )
-
-    }
 
     return (
         <div>
@@ -220,26 +218,31 @@ const LawList = (props) => {
                 </button>
                 <div className="page-info"><span className="now">第{page + 1}頁</span></div>
             </div>
-            <div className="laws-list-frame">
-                <table className="ui celled table">
-                    <thead>
-                        <tr>
-                            <th colSpan="2" style={{ textAlign: 'start', paddingLeft: '100px', fontSize: '38px' }} >{levelcz}{keyword}
-                            </th>
-                            <i className="grey huge balance scale icon"></i>
-                        </tr>
-                        <th colSpan="2" style={{ backgroundColor: 'rgba(197, 227, 225, 0.24)', fontSize: '10px' }}>
-                            <td>法規名稱</td>
-                            <td>類別</td>
-                            <td>修改日期</td>
-                        </th>
-                    </thead>
-                    {laws}
-                </table>
-                <div>{showResults ? <NoData /> : null}</div>
-            </div>
+
+            <Fragment>
+                <div className="laws-list-frame">
+                    <i className="grey huge balance scale icon"></i>
+                    <table className="ui celled table">
+                        <thead>
+                            <tr>
+                                <th colSpan="6" style={{ textAlign: 'start', paddingLeft: '100px', fontSize: '38px' }} >{levelcz}{keyword}
+                                </th>
+                            </tr>
+                            <tr style={{ backgroundColor: 'rgba(197, 227, 225, 0.24)', fontSize: '10px' }}>
+                                <td colSpan="2" >查詢</td>
+                                <td colSpan="1" >法規名稱</td>
+                                <td colSpan="1">類別</td>
+                                <td colSpan="2">修改日期</td>
+                            </tr>
+                        </thead>
+                        {laws}
+                    </table>
+                    <div>{showResults ? <NoData /> : null}</div>
+                </div>
+            </Fragment >
+
             <Root />
         </div>
     )
-};
+});
 export default LawList;

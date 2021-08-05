@@ -3,7 +3,7 @@ body{
     margin-bottom: -50px;
     margin:0px;
     padding: 0px;
-    background-color: #FDFAF4;
+    background-color: #FDFAF4!important;;
 }
 
 .nav{
@@ -13,8 +13,7 @@ body{
     height:150px;
     justify-content:space-around;
     align-items:center;
-
-    width: 100%;
+    width: 105%;
     overflow: hidden;
     position: fixed;
     top: 0px;
@@ -25,14 +24,14 @@ body{
 
 
 .menu-frame{
+    margin-left: -100px;
     display: flex;
-    justify-self: start;
     align-items: center;
     list-style:none;
+
 }
 .member-frame{
     display: flex;
-    justify-content: end;
     align-items: center;
     list-style:none;
 
@@ -52,7 +51,7 @@ body{
 }
 .member-frame li{
     width: 150px;
-    margin:20px;
+    margin-right:80px;
     font-family: sans-serif;
     font-size: 36px;
     font-style: normal;
@@ -62,14 +61,41 @@ body{
     text-align: center;
     color:rgba(253, 247, 247, 1);
     text-decoration: underline rgba(71, 123, 114, 1);
+    position: relative;
+    transition: 0.5s;
 
 }
+
+.member-frame-style:hover {
+    box-shadow: 10px 10px 10px 10px rgba(0.1, 0.1, 0.1, 0.1);
+  }
+
 .member-frame-style{
     border:5px solid #FDFAF4;
     border-radius:0.6rem;
     padding: 10px;
     width: 70%;
     margin: 50px;
+}
+.member-name{
+    cursor:auto;
+    position: relative;
+    left: 80px;
+    color: rgb(240, 219, 187) !important;
+    font-size: 30px !important;
+    font-weight:300px  !important;
+
+}
+.member-gif{
+    position: absolute;
+    left: -100px;
+    top:4px;
+    background-image: url('https://media.giphy.com/media/sJdLbUWlOUiuQ/giphy.gif');
+    background-repeat: no-repeat;
+    height: 80px;
+    width: 80px;
+    background-size: cover;
+
 }
 
 
@@ -97,11 +123,9 @@ body{
 }
 
 .laws-menu-frame{
-    /* padding-top: 476px; */
     z-index: 1;
     display: flex;
     margin-top:-150px;
-    margin-bottom: 50px;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -117,7 +141,7 @@ body{
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius:30px;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     text-decoration: underline rgba(229, 229, 229, 1);
     
@@ -141,6 +165,7 @@ body{
 .slogan-frame{
     background-color: rgba(71, 123, 114, 1);
     margin: 20px;
+    margin-top:100px;
 
 }
 
@@ -205,16 +230,14 @@ input.SearchInput{
     margin-top:150px;
     z-index: -1;
     width: 100%;
-    /* position: fixed; */
-    top:150px;
     height: 55vh;
     display: flex;
     background-color:rgba(71, 123, 114, 1);
     justify-content:space-around;
 
 }
-.law-menu i{
-    margin-left:160px;
+.balance.scale{
+    margin-left:180px;
 }
 
 

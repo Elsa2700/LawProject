@@ -3,7 +3,6 @@
 .tool-frame{
     padding-right: 200px;
     position: absolute;
-    background-color: #FDFAF4;
     width: 100%;
     top:150px;
     height: 100px;
@@ -173,6 +172,8 @@
 .LawMain-item p{
     padding: 20px;
     line-height: 60px;
+    word-wrap: break-word;
+    white-space:pre-wrap;
 }
 .LawMain-frame i{
     cursor: pointer;

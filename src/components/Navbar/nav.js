@@ -33,7 +33,15 @@ const NavBar = () => {
         return (
             <ul className="member-frame">
                 <Link to='/'><li onClick={handleLogout} className="member-frame-style" >登出</li></Link>
-                <Link to='/signup'><li><span>welcome </span>{user.email}</li></Link>
+                <Link to='/signup'>
+                    <li className="member-name">
+                    <div className="member-gif"></div>
+                    <div>
+                    <span>welcome </span>
+                        <div>{user.email}</div>
+                    </div>
+                    </li>
+                </Link>
             </ul>
         )
 
@@ -54,7 +62,6 @@ const NavBar = () => {
         <div className="nav">
             <ul className="menu-frame">
                 <Link to='/'><li>首頁</li></Link>
-                <Link to='/myblank'><li>法規查詢</li></Link>
                 <Link to='/mynote'><li>我的筆記</li></Link>
             </ul>
             <LoggedState isLoggedIn={user.email} />

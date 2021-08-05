@@ -1,15 +1,14 @@
 
-import React from 'react'
-import HomePage from './page/HomePage'
-import LawInfo from './page/LawInfo'
-import MyNote from './page/MyNote'
-import LawList from './components/LawList/LawList'
-import MyBlank from './page/MyBlank'
+import React from 'react';
+import HomePage from './page/HomePage';
+import LawInfo from './page/LawInfo';
+import MyNote from './page/MyNote';
+import LawList from './components/LawList/LawList';
+import MynoteInfo from './page/MynoteInfo';
+import MyBlank from './page/MyBlank';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { firestore } from './database/firebase-service';
 import Signup from './components/Navbar/signup';
-import { Container } from 'react-bootstrap'
-import { auth } from './database/firebase-service'
+import { Container } from 'react-bootstrap';
 import Login from './components/Navbar/login';
 import AuthContextProvider from './components/Navbar/contexts/AuthContext';
 

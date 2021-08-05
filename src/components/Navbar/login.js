@@ -1,10 +1,9 @@
-import { SerializationError } from '@elastic/elasticsearch/lib/errors';
 import React, { useRef, useState } from 'react'
-import { Form, Button, Card, Alert } from 'react-bootstrap';
 import useAuth from './contexts/AuthContext';
 import { auth } from '../../database/firebase-service';
 import '../../style/member.css';
-import {Link, useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
 
 
 
@@ -25,10 +24,10 @@ const Logout = () => {
             let result = await auth.signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
             console.log(result.user.email);
             history.push('/');
-            
+
         } catch (error) {
             console.log(error.message)
-            setError('登入失敗')
+            setError('登入失敗 😓')
         }
         setLoading(false)
     }
@@ -36,30 +35,29 @@ const Logout = () => {
 
     return (
         <>
-            <Card>
-                <Card.Body>
-                    <h2 className='text-center mb-4'>登入</h2>
-                    {JSON.stringify(currentUser)}
-                    {error && <Alert variant='danger'>{error}</Alert>}
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group id='email'>
-                            <Form.Label>信箱</Form.Label>
-                            <Form.Control type='email' ref={emailRef} required />
-                        </Form.Group>
-                        <Form.Group id='password'>
-                            <Form.Label>密碼</Form.Label>
-                            <Form.Control type='password' ref={passwordRef} required />
-                        </Form.Group>
-                        <Button disabled={loading} className='w-100' type='submit'>登入</Button>
+            <div>
 
-                    </Form>
-                </Card.Body>
-            </Card>
-            <div className='w-100 text-center mt-2'>
+                <div className='member-frame-card' >
+                    <Link to='/'><i className="gray close icon icon"></i></Link>
+                    <h1>會員登入</h1>
+                    {JSON.stringify(currentUser)}
+                    {error && <div className='alert' variant='danger'>{error}</div>}
+                    <form onSubmit={handleSubmit}>
+                        <div id='email' className='form-group'>
+                            <label>信箱</label>
+                            <input className='form-control' type='email' ref={emailRef} required />
+                        </div >
+                        <div id='password' className='form-group'>
+                            <label>密碼</label>
+                            <input className='form-control' type='password' ref={passwordRef} required />
+                        </div>
+                        <button disabled={loading} className='ui inverted olive button' type='submit'>登入</button>
+                    </form>
+                </div>
+            </div>
+            <div className='member-note'>
                 是新用戶嗎?<Link to='/signup'>註冊</Link>
             </div>
-
-
         </>
     )
 }

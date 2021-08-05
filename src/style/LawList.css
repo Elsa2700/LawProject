@@ -2,6 +2,14 @@
 .laws-list-frame{
     margin: 100px 50px 200px 50px;
 }
+.LawList-href{
+    color: rgb(17, 6, 114);
+    /* border: 1px solid red; */
+    display: inline-block;
+    width: 100px;
+    text-decoration: underline !important;
+}
+
 
 .page-btn{
     margin-top: 200px;
@@ -49,22 +57,26 @@ tr{
     text-align: center;
     width: 800px;
     vertical-align: middle;
+    text-align:center;
 
 }
 tr:hover{
     background-color: rgb(226, 228, 228, .1);
 }
-td{
-    
+
+a td{
+    border-bottom: rgba(0, 255, 128, 0);
+}
+
+td{   
     width: 1000px;
     font-family: sans-serif;
     font-size: 25px;
-    cursor: pointer;
     font-style: normal;
     font-weight:600;
     line-height: 30px;
     letter-spacing: 0em;
-    background-color:rgba(197, 227, 225, 0.24);
+    background-color: rgba(240, 255, 255, 0);
     
 }
 .ui tr{
@@ -85,13 +97,14 @@ td{
     margin: 30px;
 }
 
-.ui .talbe{
+.ui .table{
     margin:0px
 }
-td{
-    background-color: rgba(240, 255, 255, 0);
-}
+
+
 .huge.balance.scale.icon{
+    position: absolute;
+    margin: 15px;
     z-index: 0;
 }
 .nodata{

@@ -25,10 +25,7 @@ class SearchBar extends React.Component {
                                 placeholder="想要搜尋甚麼呢?"
                                 value={this.state.term}
                                 onChange={this.RecordChange} />
-                            <Link to={{
-                                pathname:'/LawList',
-                                state:{keyword:this.state.term}
-                            }}>
+                            <Link to={`/LawList?keyword=${this.state.term}`}>
                                 <input
                                     style={{ position: 'absolute', marginTop: '15px', marginRight: '15px', right: '0', zIndex: '1', width: '40px', height: '40px', opacity: '0', cursor: 'pointer' }}
                                     type='submit' value='' />

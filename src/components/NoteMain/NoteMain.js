@@ -4,27 +4,25 @@ import Context from '../../context';
 
 
 const NoteMain = ({ MyNote }) => {
-    
-    // console.log('筆記', user.uid)
-    // console.log('我的法規', MyNote)
-
     const MyMainContent = () => {
         const [notecolor, setNoteColor] = useState('MyMainNote-col1');
         const [colorItem, setColorItem] = useState([...Array(4).keys()]);
         const [active, setActive] = useState([]);
         const [value, setValue] = useState('');
         const { user } = useContext(Context);
-        console.log('notemain_userid',user.uid)
-
+        const [order,setOrder] = useState(Date().toLocaleString().split("GMT")[0])
+        
         const createMyNote = () => {
             firestore
                 .collection('users').add({
                     user: user.uid,
-                    laws: 'law key',
+                    laws: MyNote.lawKey,
                     law: MyNote,
                     noteColor: notecolor,
-                    noteContent: value
+                    noteContent: value,
+                    order: order
                 }).then((docRef) => {
+                    window.location.reload();
                     console.log("Document written with ID: ", docRef.id);
                 })
                 .catch((error) => {
@@ -41,8 +39,12 @@ const NoteMain = ({ MyNote }) => {
           );
 
         const handleSubmit = (e) => {
+            e.preventDefault();
+            // console.log(Date().toLocaleString().split("GMT")[0])
+            setOrder(Date().toLocaleString().split("GMT")[0]);
             createMyNote();
-            // e.preventDefault();
+            console.log('送出');
+            
         }
         const toggleClass = (e) => {
             const itemactive = colorItem.map(item => item === colorItem[e.currentTarget.value]);
