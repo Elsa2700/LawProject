@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import Context from '../../context';
 import { firestore } from '../../database/firebase-service';
-import { Link } from 'react-router-dom';
-import NoteMain from '../NoteMain/NoteMain';
 import Loading from '../Loading/Loading';
+import PropTypes from "prop-types";
+
 
 const NoteList = ({ parentcallback }) => {
     const { user } = useContext(Context);
@@ -44,14 +44,12 @@ const NoteList = ({ parentcallback }) => {
     }
 
     const handleClick = (ItemKey) => {
-        console.log(ItemKey);
         deleteMyNote(ItemKey);
     }
 
-    const buildItems = Item.map((item) => {
-        console.log(item)
+    const buildItems = Item.map((item,index) => {
         return (
-            <div className='note-list-frame'
+            <div key={index} className='note-list-frame'
                 onClick={() => { setOpenBox(!openBox); parentcallback(openBox, Item, item) }} Item={Item}>
 
                 <div className={`item ${item.noteColor}`} key={item}>
@@ -88,5 +86,8 @@ const NoteList = ({ parentcallback }) => {
         </div >
     )
 }
+NoteList.propTypes = {
+    parentcallback: PropTypes.object.isRequired,
+  };
 
 export default NoteList;

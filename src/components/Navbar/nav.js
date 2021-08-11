@@ -6,7 +6,7 @@ import Context from '../../context';
 
 const NavBar = () => {
     const { user } = useContext(Context);
-    const [error, setError] = useState('');
+    const [errormsg, setErrormsg] = useState('');
     const history = useHistory();
 
     const handleLogout = async (e) => {
@@ -16,7 +16,8 @@ const NavBar = () => {
             console.log(result, '登出狀態');
             history.go(0)
         } catch (error) {
-            setError(error.messag)
+            setErrormsg(error.messag);
+            return errormsg;
         }
     }
 

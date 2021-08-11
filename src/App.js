@@ -4,9 +4,7 @@ import HomePage from './page/HomePage';
 import LawInfo from './page/LawInfo';
 import MyNote from './page/MyNote';
 import LawList from './components/LawList/LawList';
-import MynoteInfo from './page/MynoteInfo';
-import MyBlank from './page/MyBlank';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Signup from './components/Navbar/signup';
 import { Container } from 'react-bootstrap';
 import LogIn from './components/Navbar/login';
@@ -30,18 +28,16 @@ class App extends React.Component {
                             </Route>
                             <Route path='/login' component={LogIn}>
                                 <div className='w-100' style={{ maxWidth: '400px' }}>
-                                    <LogIn />
+                                    <LogIn/>
                                 </div>
                             </Route>
                             <Route path='/' exact component={HomePage}>
-                                <HomePage />
                             </Route>
                             <Route path='/lawinfo' component={LawInfo}>
                             </Route>
                             <Route path='/mynote' component={MyNote}>
                             </Route>
                             <Route path='/LawList' component={LawList}>
-                                <LawList />
                             </Route>
                         </Container>
                     </Switch>
@@ -50,8 +46,5 @@ class App extends React.Component {
         )
     }
 }
-
-
-
 
 export default App;

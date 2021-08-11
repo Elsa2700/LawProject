@@ -1,7 +1,7 @@
 @media screen and (min-width: 1200px){
 
 body{
-    margin-bottom: -50px;
+    margin-bottom: 0px;
     margin:0px;
     padding: 0px;
     background-color: #FDFAF4!important;;
@@ -25,7 +25,7 @@ body{
 
 
 .menu-frame{
-    margin-left: -100px;
+    margin-left: -30px;
     display: flex;
     align-items: center;
     list-style:none;
@@ -146,7 +146,7 @@ body{
 .laws-menu-frame{
     z-index: 1;
     display: flex;
-    margin-top:-150px;
+    margin-top:-120px;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -155,6 +155,7 @@ body{
 }
 
 .law-menu{
+    margin-top: 30px;
     width: 330px;
     height: 415px;
     margin: 80px 15px 50px 15px !important;
@@ -251,7 +252,7 @@ input.SearchInput{
     margin-top:150px;
     z-index: -1;
     width: 100%;
-    height: 55vh;
+    height: 400px;
     display: flex;
     background-color:rgba(71, 123, 114, 1);
     justify-content:space-around;
@@ -372,15 +373,15 @@ input.SearchInput{
         display: block;
         z-index: 3;
         margin: auto;
-        top:-400px;
-        left: -200px;
-        position: absolute;
+        position: fixed;
+        left: 10%;
+        top: 25%;
+        width:120%;
+        height:120%;
         background-image: url('https://media.giphy.com/media/PUYgk3wpNk0WA/giphy.gif');
         opacity: .5;
         background-repeat: no-repeat;
-        height: 160%;
-        width: 120%;
-        background-size:cover;
+        /* background-size:cover; */
     
     }
     .member-gif{
@@ -519,7 +520,6 @@ input.SearchInput{
         text-decoration: none;
     }
     input.SearchInput{
-        
         background-color: rgb(126, 103, 10);
     }
     
@@ -529,7 +529,7 @@ input.SearchInput{
     .search-frame{
         display: flex;
         align-items: center;
-        margin-bottom: 140px;
+        margin-bottom: 180px;
         z-index: 0;
     }
     .prompt{
@@ -544,7 +544,7 @@ input.SearchInput{
     }
     
     .header-frame{
-        width: 360px;
+        width: 80%;
         margin-top:120px;
         z-index: -1;
         width: 100% !important;

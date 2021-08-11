@@ -1,6 +1,8 @@
 
 import React from 'react';
-import '../../style/LawInfo.css'
+import '../../style/LawInfo.css';
+import PropTypes from "prop-types";
+
 
 
 const LawHeader = ({LawInfo}) => {
@@ -26,5 +28,8 @@ const LawHeader = ({LawInfo}) => {
     )
 
 }
+LawHeader.propTypes = {
+    LawInfo: PropTypes.object.isRequired,
+  };
 
 export default LawHeader;

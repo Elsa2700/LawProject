@@ -9,10 +9,10 @@ import Loading from '../Loading/Loading';
 
 
 
-const LawList = React.memo(() => {
+const LawList = () => {
+
     //初始化
     const [list, setList] = useState([]);
-    const [showResults, setShowResults] = useState(false)
     const [prevFirstItem, setPrevFirstItem] = useState([]);
     const [lastVisible, setlastVisible] = useState([]);
     const [page, setPage] = useState(0);
@@ -46,8 +46,6 @@ const LawList = React.memo(() => {
                 .get().then((documentSnapshots) => {
                     const data = documentSnapshots.docs.map((doc) => ({ ...doc.data(), keyid: doc.id }))
                     setList(data);
-
-                    const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
                 });
         };
 
@@ -56,17 +54,24 @@ const LawList = React.memo(() => {
         const fetchSearchData = () => {
             firestore
                 .collection('lawData')
-                .limit(10)
                 .where('wordDB', 'array-contains', keyword)
+                .orderBy('LawName', 'desc')
+                .limit(10)
                 .get().then((documentSnapshots) => {
-                    const data = documentSnapshots.docs.map((doc) => ({ ...doc.data(), keyid: doc.id }))
-                    setList(data)
-                    const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
+                    console.log(documentSnapshots)
+                    const data = documentSnapshots.docs.map((doc) => ({
+                         ...doc.data(), keyid: doc.id 
+                        }));
+                    
+                    setList(data);
+                    setlastVisible(lastVisible);
+
                 });
         };
+       
+
 
         if (keyword === '') {
-            console.log(levelcz);
             fetchLevelData();
             return { num: false }
         }
@@ -76,7 +81,6 @@ const LawList = React.memo(() => {
             return { num: true }
         }
     }, []);
-
 
     //next button function
     const fetchLevelNextData = (lastVisible) => {
@@ -92,7 +96,6 @@ const LawList = React.memo(() => {
             .get().then((documentSnapshots) => {
                 const items = documentSnapshots.docs.map((doc) => ({ key: doc.id, ...doc.data() }));
                 setList(items);
-                const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
                 setPage(page + 1);
             });
     };
@@ -110,23 +113,26 @@ const LawList = React.memo(() => {
             });
     };
 
+
     //關鍵字搜尋=====================
     const fetchSearchNextData = (lastVisible) => {
-        prevFirstItem[page] = list[0]
-        setPrevFirstItem(prevFirstItem)
+        prevFirstItem[page] = list[0];
+        setPrevFirstItem(prevFirstItem);
         console.log('lastVisible', lastVisible);
+        console.log('lastVisible', lastVisible.LawName);
         firestore
             .collection('lawData')
             .where('wordDB', 'array-contains', keyword)
-            .limit(10)
-            .orderBy('LawCategory', 'desc')
+            .orderBy('LawName', 'desc')
             .startAfter(lastVisible.LawCategory)
+            .limit(10)
             .get().then((documentSnapshots) => {
                 const items = documentSnapshots.docs.map((doc) => ({ key: doc.id, ...doc.data() }));
                 setList(items);
                 setPage(page + 1);
             });
     };
+
     const fetchSearchPreviousData = (lastVisible) => {
         firestore
             .collection('lawData')
@@ -152,10 +158,8 @@ const LawList = React.memo(() => {
 
 
     //上下頁
-    
     const ShowNext = (item) => {
         if (!item) {
-
             return 
         }
 
@@ -170,10 +174,8 @@ const LawList = React.memo(() => {
             return
         }
         if (keyword === '') {
-            setShowResults(false)
             fetchLevelPreviousData(item);
         } else {
-            setShowResults(false)
             fetchSearchPreviousData(item);
         }
     };
@@ -182,9 +184,9 @@ const LawList = React.memo(() => {
 
     const laws = list.map(({ keyid, LawName, LawModifiedDate, LawHistories, LawCategory, LawURL, LawArticles }) => {
         return (
-            <Fragment>
+            <Fragment key={keyid}>
                 <tr>
-                    <Link key={keyid} className='LawList-href' to={{
+                    <Link className='LawList-href' to={{
                         pathname: '/LawInfo',
                         state: { lawinfo: { keyid, LawName, LawModifiedDate, LawHistories, LawCategory, LawURL, LawArticles } }
                     }}>
@@ -258,5 +260,5 @@ const LawList = React.memo(() => {
             </div>
         </>
     )
-});
+};
 export default LawList;

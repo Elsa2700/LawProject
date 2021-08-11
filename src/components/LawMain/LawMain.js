@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import ScrollIntoView from 'react-scroll-into-view';
 import React, { useState } from 'react';
 import LawTool from '../LawHeader/LawTool';
+import PropTypes from "prop-types";
 
 
 
 const LawMain = ({ LawInfo }) => {
-    console.log('法條內容資訊', { LawInfo });
     const [fontSize, setFontSize] = useState('');
     const lawKey = LawInfo.keyid;
 
@@ -88,4 +88,7 @@ const LawMain = ({ LawInfo }) => {
 }
 
 
+LawMain.propTypes = {
+    LawInfo: PropTypes.object.isRequired,
+  };
 export default LawMain;

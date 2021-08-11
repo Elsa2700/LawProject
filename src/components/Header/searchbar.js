@@ -1,9 +1,12 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Link, useLocation } from "react-router-dom";
+import LawList from '../LawList/LawList';
+import { BrowserRouter as Route, Link, Switch } from "react-router-dom";
 
 class SearchBar extends React.Component {
-    state = { term: '' }
+    state = {
+        term: ''
+    }
 
     onFormSubmit = (e) => {
         e.preventDefault();
@@ -33,6 +36,9 @@ class SearchBar extends React.Component {
                                     className=" large search icon">
                                 </i>
                             </Link>
+                            <Switch>
+                                <Route path={`/LawList?keyword=${this.state.term}`} component={LawList} />
+                            </Switch>
                         </div>
                     </form>
                 </div>

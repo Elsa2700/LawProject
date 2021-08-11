@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
 import useAuth from './contexts/AuthContext';
-import { auth } from '../../database/firebase-service';
 import { Link, useHistory } from 'react-router-dom';
 
 
@@ -8,7 +7,7 @@ const Signup = () => {
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
-    const { signup, currentUser } = useAuth;
+    const { currentUser } = useAuth;
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -22,13 +21,11 @@ const Signup = () => {
         try {
             setError('')
             setLoading(true)
-            console.log(emailRef.current.value, passwordRef.current.value)
-            let result = await auth.createUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
             history.push('/')
 
 
         } catch (error) {
-            setError('帳號請輸入正確信箱，密碼請輸入8個以上的數字或文字')
+            setError('請輸入正確信箱或密碼請輸入8個以上的數字或文字')
         }
         setLoading(false)
     }

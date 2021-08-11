@@ -1,7 +1,6 @@
 import '../../style/LawInfo.css';
-import { Link } from 'react-router-dom';
-import { propTypes } from 'react-bootstrap/esm/Image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import PropTypes from "prop-types";
 
 
 
@@ -34,6 +33,9 @@ const LawTool = ({setFontSize}) => {
     )
 
 }
+LawTool.propTypes = {
+    setFontSize: PropTypes.object.isRequired,
+  };
 
 export default LawTool;
 

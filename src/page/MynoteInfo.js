@@ -1,23 +1,18 @@
 
-import React, { useEffect, Component, useState, useContext } from 'react';
-import NavBar from '../components/Navbar/nav';
-import Root from '../components/Navbar/root';
-import Context from '../context';
-import NoteMain from '../components/NoteMain/NoteMain';
-import NoteList from '../components/NoteList/NoteList';
+import React, { useEffect, useState } from 'react';
 import '../style/MyNote.css';
-import { useLocation } from 'react-router-dom';
 import { firestore } from '../database/firebase-service';
+import PropTypes from "prop-types";
 
 
 const MynoteInfo = ((props) => {
+    // console.log(props.item[0].order)
     const [active1, setActive1] = useState('');
     const [active2, setActive2] = useState('');
     const [active3, setActive3] = useState('');
     const [activedef, setActivedef] = useState('active');
     const [clipbroad, setclipbroad] = useState(1);
     
-
 
     const handleSelect = (e) => {
 
@@ -33,6 +28,8 @@ const MynoteInfo = ((props) => {
     }
 
     const Note = () => {
+
+    
         return (
             <>
                 <h2>筆記內容:</h2>
@@ -59,9 +56,6 @@ const MynoteInfo = ((props) => {
                             console.log("Document data:", doc.data());
                             let data = doc.data();
                             setlaws({...data});
-                            
-                            
-
                         } else {
                             console.log("No such document!");
                         }
@@ -73,11 +67,18 @@ const MynoteInfo = ((props) => {
             fetchLawData(lawsId);
             
         },[]);
+        console.log(laws)
 
         return (
             <>
                 <h2>法條名稱:</h2>
                 <p>{laws.LawName}</p>
+                <hr />
+                <h2>類別:</h2>
+                <p>{laws.LawCategory}</p>
+                <hr />
+                <h2>法條歷史:</h2>
+                <p>{laws.LawHistories}</p>
                 <hr />
                 <h2>法條章節:</h2>
                 <p>{props.item.law.ArticleNo}</p>
@@ -103,6 +104,7 @@ const MynoteInfo = ((props) => {
                         props.item.noteColor[14] == '2' ? '黃色' :
                             props.item.noteColor[14] == '3' ? '澄色' : '紅色'}
                 </p>
+
             </>
         )
     }
@@ -137,6 +139,9 @@ const MynoteInfo = ((props) => {
     )
 })
 
-
+MynoteInfo.propTypes = {
+    item: PropTypes.object.isRequired,
+  };
+  
 
 export default MynoteInfo;

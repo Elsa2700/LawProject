@@ -156,24 +156,27 @@
 }
 .FontLarge{
     font-size: 4em;
+    line-height: 4em;
 }
 .FontMid{
     font-size: 3.5em;
+    line-height: 3.5em;
 }
 .FontSmall{
     font-size: 3em;
+    line-height: 3.5em;
 }
 .read-tool{
     display: none;
 }
 .LawMain-item header{
+    line-height: 60px;
     margin: 20px;
     font-weight: bold;
     
 }
 .LawMain-item p{
-    padding: 20px;
-    line-height: 60px;
+    padding-left: 20px;
     word-wrap: break-word;
     white-space:pre-wrap;
 }
@@ -189,7 +192,7 @@ i.arrow.circle.icon{
     left: 15px;
     cursor: pointer;
     display: inline-block;
-    animation-name: example;
+    animation-name: examplearrow;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.2))
@@ -228,7 +231,7 @@ i.arrow.circle.icon{
 }
 
 
-  @keyframes example {
+  @keyframes examplearrow {
     0% {transform:translateY(0%)}
     50% {transform:translateY(10%)}
   }
@@ -277,7 +280,7 @@ i.arrow.circle.icon{
 
 .LawHeader-frame{
 
-    width: 90%;
+    width: 100%;
     margin: 20px auto;
     margin-top:300px;
     background-color: rgba(217, 230, 195, 0.6);
@@ -285,7 +288,7 @@ i.arrow.circle.icon{
     padding: 30px 20px 20px;
 }
 .LawHeader-frame header{
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-family: Roboto;
     font-size: 30px;
     font-style: normal;
@@ -361,11 +364,12 @@ i.arrow.circle.icon{
 }
 .LawMain-item{
     margin:auto;
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content:space-between;
     margin-top:50px;
-    border: 3px solid #00000044;
+    background-color:rgba(236, 222, 158, 0.418);
+    border-bottom: 3px solid #00000044;
     border-radius: 10px;
     font-family: Roboto;
     font-size: 30px;
@@ -378,25 +382,27 @@ i.arrow.circle.icon{
 }
 .FontLarge{
     font-size: 4em;
+    line-height: 4em;
 }
 .FontMid{
     font-size: 3.5em;
+    line-height: 3.5em;
 }
 .FontSmall{
     font-size: 3em;
+    line-height: 3em;
 }
 .read-tool{
     display: none;
 }
 .LawMain-item header{
-    margin: 30px;
+    margin: 40px;
     font-weight: bold;
     
 }
 .LawMain-item p{
     width: 100%;
-    padding: 20px;
-    line-height: 35px;
+    padding-left: 20px;
     word-wrap: break-word;
     white-space:pre-wrap;
 }
@@ -414,7 +420,7 @@ i.arrow.circle.icon{
     left: 50px;
     cursor: pointer;
     display: inline-block;
-    animation-name: example;
+    animation-name: examplearrow;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.2))
@@ -453,7 +459,7 @@ i.arrow.circle.icon{
 }
 
 
-  @keyframes example {
+  @keyframes examplearrow {
     0% {transform:translateY(0%)}
     50% {transform:translateY(10%)}
   }

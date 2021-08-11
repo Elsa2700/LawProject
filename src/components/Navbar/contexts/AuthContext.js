@@ -1,6 +1,7 @@
-import React, {createContext, Component} from 'react';
+import React, {Component} from 'react';
 import {auth}  from '../../../database/firebase-service';
 import Context from '../../../context';
+import PropTypes from "prop-types";
 
 
 class AuthContextProvider extends Component{
@@ -23,5 +24,7 @@ class AuthContextProvider extends Component{
         )
     }
 }
-
+AuthContextProvider.propTypes = {
+    children: PropTypes.array.isRequired,
+  };
 export default AuthContextProvider;

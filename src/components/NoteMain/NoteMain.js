@@ -1,16 +1,18 @@
 import React, {useState, useContext, useCallback } from 'react';
 import { firestore } from '../../database/firebase-service';
 import Context from '../../context';
+import PropTypes from "prop-types";
 
 
 const NoteMain = ({ MyNote }) => {
     const MyMainContent = () => {
+        const colorItem = useState([...Array(4).keys()]);
         const [notecolor, setNoteColor] = useState('MyMainNote-col1');
-        const [colorItem, setColorItem] = useState([...Array(4).keys()]);
         const [active, setActive] = useState([]);
         const [value, setValue] = useState('');
         const { user } = useContext(Context);
-        const [order,setOrder] = useState(Date().toLocaleString().split("GMT")[0])
+        const [order,setOrder] = useState(Date().toLocaleString().split("GMT")[0]);
+        const [count, setCount] = useState(0);
         
         const createMyNote = () => {
             firestore
@@ -20,7 +22,8 @@ const NoteMain = ({ MyNote }) => {
                     law: MyNote,
                     noteColor: notecolor,
                     noteContent: value,
-                    order: order
+                    order: order,
+                    count:count
                 }).then((docRef) => {
                     window.location.reload();
                     console.log("Document written with ID: ", docRef.id);
@@ -40,10 +43,9 @@ const NoteMain = ({ MyNote }) => {
 
         const handleSubmit = (e) => {
             e.preventDefault();
-            // console.log(Date().toLocaleString().split("GMT")[0])
             setOrder(Date().toLocaleString().split("GMT")[0]);
+            setCount(count+1);
             createMyNote();
-            console.log('送出');
             
         }
         const toggleClass = (e) => {
@@ -98,5 +100,8 @@ const NoteMain = ({ MyNote }) => {
         </div>
     )
 }
+NoteMain.propTypes = {
+    MyNote: PropTypes.object.isRequired,
+  };
 
 export default NoteMain;

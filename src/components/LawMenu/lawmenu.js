@@ -1,13 +1,14 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Link, useLocation } from "react-router-dom";
+import { BrowserRouter as Route, Link, Switch } from "react-router-dom";
+import LawList from '../LawList/LawList';
 
 
 class LawMenu extends React.Component {
     render() {
         return (
             <div className="laws-menu-frame">
-                <Link to='/LawList?level=constitution'>
+                <Link to="/LawList?level=constitution">
                     <div className="law-menu">
                         <ul className="law-menu-text">
                             <li style={{ fontSize: '50px', color: 'black', marginBottom: "15px" }}>憲法</li>
@@ -17,7 +18,8 @@ class LawMenu extends React.Component {
                         </ul>
                     </div>
                 </Link>
-                <Link to='/LawList?level=law'>
+
+                <Link to="/LawList?level=law">
                     <div className="law-menu">
                         <ul className="law-menu-text">
                             <li style={{ fontSize: '50px', color: 'black', marginBottom: "15px" }}>法律</li>
@@ -28,7 +30,7 @@ class LawMenu extends React.Component {
                     </div>
                 </Link>
 
-                <Link to='/LawList?level=order'>
+                <Link to="/LawList?level=order">
                     <div className="law-menu">
                         <ul className="law-menu-text">
                             <li style={{ fontSize: '50px', color: 'black', marginBottom: "15px" }}>命令</li>
@@ -38,7 +40,9 @@ class LawMenu extends React.Component {
                         </ul>
                     </div>
                 </Link>
-
+                <Switch>
+                    <Route path="/LawList" component={LawList} />
+                </Switch>
 
             </div >
         )

@@ -10,8 +10,7 @@ import { Link, useHistory } from 'react-router-dom';
 const LogIn = () => {
     const emailRef = useRef();
     const passwordRef = useRef();
-    const passwordConfirmRef = useRef();
-    const { signup, currentUser } = useAuth;
+    const { currentUser } = useAuth;
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory();

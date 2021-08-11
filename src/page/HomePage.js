@@ -6,9 +6,6 @@ import Header from '../components/Header/header';
 import "../style/homepage.css"
 import LawMenu from '../components/LawMenu/LawMenu';
 
-// import { firestore} from '../database/firebase-service'
-import { Link } from 'react-router-dom';
-
 class HomePage extends React.Component {
     render() {
 

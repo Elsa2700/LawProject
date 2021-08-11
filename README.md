@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+<h1 align='center'>行動法規本 MyLawApp</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### 主網站連結：https://my-law-app-129bd.web.app
 
-## Available Scripts
+##### 測試帳號：qqq@q.com
+##### 測試密碼：11111111
 
-In the project directory, you can run:
+### 行動法規本的專案核心功能介紹###
+<hr>
+    - 以執法人員、考生、法律學習者為對象
+    - 目的:
+    (1)快速、便利、即時查詢法規
+    (2)提供法規重點筆記工具
 
-### `npm start`
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/title.JPG)
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/userstory2.JPG)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 行動法規本的專案設計草稿和進度說明：
+<hr>
+    - 設計草稿
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/wirefare_homepage.JPG)
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/wirefare_homepagelist.JPG)
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/wirefare_homepageinfo1.JPG)
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/wirefare_mynote.JPG)
 
-### `npm test`
+    - 設計組件架構
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/%E7%B5%84%E4%BB%B6%E6%9E%B6%E6%A7%8B.JPG)
 
-### `npm run build`
+    - 進度規劃
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/wireframe_time.JPG)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 行動法規本的專案，具備以下功能：
+<hr>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### 1. 首頁頁面
+    - 會員註冊與登入功能
+    - 兩種法規查詢方法: 法規總類查詢、關鍵字查詢
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/homepage.JPG)
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/homepagerwd.JPG)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. 法規查詢列表頁面
+    - 上下頁切換
+    - 表格呈現法規名稱、總類、更新時間
+    - 點擊查詢法規
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/list.JPG)
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/listrwd.JPG)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 3. 法規資訊頁面
+    - 可點選章節按鈕，自動滑動至特定章節
+    - 將法規加入我的蒐藏
 
-## Learn More
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/info1.JPG)
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/info2.JPG)
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/inforwd.JPG)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. 法規筆記頁面
+    - 筆記編輯工具區
+    - 建立及刪除便簽
+    - 便簽可彈性選色及附記時間
+    - 便簽檢視筆記內容、詳細母法資訊、其他資訊
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/note.JPG)
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/note2.JPG)
+![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/noterwd.JPG)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 開發技術
+<hr/>
+<ul>
+    <li>React Framework</li>
+    <li>JavaScript</li>
+    <li>CSS</li>
+</ul>
+<ul>
+    <li>Firebase
+        <ul>
+            <li>Firebase Storage</li>
+            <li>Firebase Authentication</li>
+            <li>Firebase Hosting</li>
+        </ul>
+    </li>
+</ul>
+<ul>
+    <li>全國法規資料庫Open API</li>
+    <li>jieba</li>
+    <li>Responsive Web Design</li>
+</ul>
