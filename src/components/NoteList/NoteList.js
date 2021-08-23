@@ -40,7 +40,7 @@ const NoteList = ({ parentcallback }) => {
     }
 
     const handleScroll = () => {
-        console.log('下拉功能')
+        return
     }
 
     const handleClick = (ItemKey) => {

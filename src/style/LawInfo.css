@@ -11,7 +11,7 @@
     justify-content:flex-end;
     align-items: center;
     font-family: Roboto;
-    font-size: 30px;
+    font-size: 20px;
     font-style: normal;
     font-weight:bolder;
     line-height: 42px;
@@ -34,7 +34,7 @@
     border: 3px solid #A99D9D;
     background-color: rgba(240, 255, 255, 0);
     margin: 5px;
-    font-size: 30px;
+    font-size: 20px;
     padding: 6px;
 }
 .read-tool{
@@ -50,16 +50,16 @@
 
 .LawHeader-frame{
     width: 80%;
-    margin: 20px auto;
-    margin-top:300px;
+    margin: auto;
+    margin-top:250px;
     background-color: rgba(217, 230, 195, 0.6);
     border-radius: 20px;
     padding: 30px 20px 20px;
 }
 .LawHeader-frame header{
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-family: Roboto;
-    font-size: 40px;
+    font-size: 30px;
     font-style: normal;
     font-weight:bolder;
     line-height: 53px;
@@ -71,7 +71,7 @@
 .LawHeader-frame span{
     margin-left: 15px;
     font-family: Roboto;
-    font-size: 35px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 400;
     line-height: 41px;
@@ -88,7 +88,7 @@
 .lawchapter-frame .ui.button{
     margin:10px 10px auto;
     font-family: Roboto;
-    font-size: 30px;
+    font-size: 20px;
     font-style: normal;
     font-weight:bolder;
     text-align: left;
@@ -101,13 +101,13 @@
 }
 
 .LawMain-chapter{
-    margin:50px 0px auto;
+    margin:10px 0px auto;
     padding: 20px;
     width: 100%;
     display: flex;
     justify-content: start;
     font-family: Roboto;
-    font-size: 45px;
+    font-size: 35px;
     font-style: normal;
     font-weight:bolder;
     letter-spacing: 0em;
@@ -116,13 +116,13 @@
 }
 .LawMain-section{
     color: rgb(43, 114, 93);
-    margin:50px 0px auto;
+    margin:20px 0px auto;
     padding: 20px;
     width: 100%;
     display: flex;
     justify-content: start;
     font-family: Roboto;
-    font-size: 40px;
+    font-size: 30px;
     font-style: normal;
     font-weight: bolder;
     letter-spacing: 0em;
@@ -144,7 +144,7 @@
     border: 3px solid #00000044;
     border-radius: 10px;
     font-family: Roboto;
-    font-size: 35px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 400;
     line-height: 41px;
@@ -155,16 +155,16 @@
 
 }
 .FontLarge{
-    font-size: 4em;
-    line-height: 4em;
+    font-size: 3em;
+    line-height: 3em;
 }
 .FontMid{
-    font-size: 3.5em;
-    line-height: 3.5em;
+    font-size: 2.5em;
+    line-height: 2.5em;
 }
 .FontSmall{
-    font-size: 3em;
-    line-height: 3.5em;
+    font-size: 2em;
+    line-height: 2em;
 }
 .read-tool{
     display: none;
@@ -213,8 +213,11 @@ i.arrow.circle.icon{
 
 }
 .add-text{
-    background-color: rgb(236, 233, 15);
-    padding: 10px;
+    margin: 0px;
+    line-height: 40px;
+    background-color: rgb(236, 233, 15,.7);
+    padding: 5px;
+    height: 50px;
     font-size: 22px;
     color: rgb(80, 76, 67);
     font-weight: bold;
@@ -223,7 +226,7 @@ i.arrow.circle.icon{
     visibility:hidden;
     position: absolute;
     right: 70px;
-    top:-20px;
+    top:20px;
 
 }
 .arrowIcon{
@@ -279,18 +282,17 @@ i.arrow.circle.icon{
 
 
 .LawHeader-frame{
-
     width: 100%;
-    margin: 20px auto;
+    margin: 20px auto 40px;
     margin-top:300px;
     background-color: rgba(217, 230, 195, 0.6);
     border-radius: 20px;
-    padding: 30px 20px 20px;
+    padding: 10px 20px 20px;
 }
 .LawHeader-frame header{
     margin-bottom: 20px;
     font-family: Roboto;
-    font-size: 30px;
+    font-size: 25px;
     font-style: normal;
     font-weight:bolder;
     line-height: 53px;
@@ -335,7 +337,7 @@ i.arrow.circle.icon{
 }
 
 .LawMain-chapter{
-    margin:10px auto;
+    margin:30px auto;
     font-family: Roboto;
     font-size: 35px;
     font-style: normal;
@@ -381,16 +383,16 @@ i.arrow.circle.icon{
 
 }
 .FontLarge{
-    font-size: 4em;
-    line-height: 4em;
-}
-.FontMid{
-    font-size: 3.5em;
-    line-height: 3.5em;
-}
-.FontSmall{
     font-size: 3em;
     line-height: 3em;
+}
+.FontMid{
+    font-size: 2.5em;
+    line-height: 2.5em;
+}
+.FontSmall{
+    font-size: 2em;
+    line-height: 2em;
 }
 .read-tool{
     display: none;

@@ -58,7 +58,6 @@ const LawList = () => {
                 .orderBy('LawName', 'desc')
                 .limit(10)
                 .get().then((documentSnapshots) => {
-                    console.log(documentSnapshots)
                     const data = documentSnapshots.docs.map((doc) => ({
                          ...doc.data(), keyid: doc.id 
                         }));
@@ -76,7 +75,6 @@ const LawList = () => {
             return { num: false }
         }
         else {
-            console.log(keyword);
             fetchSearchData();
             return { num: true }
         }
@@ -86,7 +84,6 @@ const LawList = () => {
     const fetchLevelNextData = (lastVisible) => {
         prevFirstItem[page] = list[0]
         setPrevFirstItem(prevFirstItem)
-        console.log('lastVisible', lastVisible);
         firestore
             .collection('lawData')
             .limit(10)
@@ -118,8 +115,6 @@ const LawList = () => {
     const fetchSearchNextData = (lastVisible) => {
         prevFirstItem[page] = list[0];
         setPrevFirstItem(prevFirstItem);
-        console.log('lastVisible', lastVisible);
-        console.log('lastVisible', lastVisible.LawName);
         firestore
             .collection('lawData')
             .where('wordDB', 'array-contains', keyword)

@@ -15,7 +15,6 @@ class LawContextProvider extends Component{
             } else {
                 this.setState({ user: user })
             }
-            console.log('登入',this.state.user)
         });
     }
     render(){

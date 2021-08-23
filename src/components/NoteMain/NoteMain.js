@@ -4,17 +4,23 @@ import Context from '../../context';
 import PropTypes from "prop-types";
 
 
+
 const NoteMain = ({ MyNote }) => {
+
     const MyMainContent = () => {
-        const colorItem = useState([...Array(4).keys()]);
+        const colorItem = [...Array(4).keys()];
         const [notecolor, setNoteColor] = useState('MyMainNote-col1');
         const [active, setActive] = useState([]);
         const [value, setValue] = useState('');
         const { user } = useContext(Context);
         const [order,setOrder] = useState(Date().toLocaleString().split("GMT")[0]);
         const [count, setCount] = useState(0);
-        
+
+
         const createMyNote = () => {
+            if(!MyNote){
+                history.go(-1)
+            }else{
             firestore
                 .collection('users').add({
                     user: user.uid,
@@ -31,6 +37,7 @@ const NoteMain = ({ MyNote }) => {
                 .catch((error) => {
                     console.error("Error adding document: ", error);
                 });
+            }
         }
 
 
@@ -63,6 +70,9 @@ const NoteMain = ({ MyNote }) => {
                 </button>
             )
         })
+
+
+
         return (
             <div className='MyMainNote'>
                 <form onSubmit={handleSubmit}>
@@ -80,6 +90,9 @@ const NoteMain = ({ MyNote }) => {
         )
 
     }
+
+
+
 
     const MyMainLaw = ({ MyNote }) => {
         return (
@@ -100,8 +113,9 @@ const NoteMain = ({ MyNote }) => {
         </div>
     )
 }
+
 NoteMain.propTypes = {
-    MyNote: PropTypes.object.isRequired,
+    MyNote: PropTypes.object.isRequired
   };
 
 export default NoteMain;
