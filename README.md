@@ -5,7 +5,7 @@
 ##### 測試帳號：qqq@q.com
 ##### 測試密碼：11111111
 
-### 行動法規本的專案核心功能介紹###
+### 行動法規本的專案核心功能介紹
 <hr>
     - 以執法人員、考生、法律學習者為對象
     - 目的:
@@ -38,14 +38,14 @@
 
 ### 1. 首頁頁面
     - 會員註冊與登入功能
-    - 兩種法規查詢方法: 法規總類查詢、關鍵字查詢
+    - 兩種法規查詢方法: 法規種類查詢、關鍵字查詢
 
 ![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/homepage.JPG)
 ![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/homepagerwd.JPG)
 
 ### 2. 法規查詢列表頁面
     - 上下頁切換
-    - 表格呈現法規名稱、總類、更新時間
+    - 表格呈現法規名稱、種類、更新時間
     - 點擊查詢法規
 
 ![image alt](https://raw.githubusercontent.com/Elsa2700/test/master/list.JPG)
