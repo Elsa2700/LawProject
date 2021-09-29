@@ -15,7 +15,6 @@ const MyNote = ({ location }) => {
     const { user } = useContext(Context);
 
     const MyNoteContent = () => {
-
         let Box = 'show';
         let BoxInfo = 'hide';
         const [BoxToggle, setBoxToggle] = useState(false);
@@ -43,7 +42,7 @@ const MyNote = ({ location }) => {
             <div className={user.email == undefined ? 'hide' : 'show'}>
                 <div className='MyNote-frame'>
                     <NoteList parentcallback={callback} />
-                    <div className={`noteMain-frame ${Box}`}>
+                    <div className={Box === 'hide' ? 'hide' : 'noteMain-frame'}>
                         <NoteMain className='NoteMain' MyNote={location.state ? location.state.lawnote : ''} />
                     </div>
                     <div className={`noteInfo-frame ${BoxInfo}`}>
@@ -67,8 +66,8 @@ const MyNote = ({ location }) => {
     return (
         <div>
             <NavBar />
-                <MyNoteContent />
-                <WarmInfo />
+            <MyNoteContent />
+            <WarmInfo />
             <Root />
         </div>
     )
@@ -76,6 +75,6 @@ const MyNote = ({ location }) => {
 
 MyNote.propTypes = {
     location: PropTypes.object.isRequired,
-  };
+};
 
 export default MyNote;

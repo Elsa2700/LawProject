@@ -18,16 +18,14 @@ class App extends React.Component {
                 <AuthContextProvider>
                     <Switch>
                         <Container
-                            className='d-flex align-items-center justify-content-center'
-                            style={{ minHeight: '100vh' }}
-                        >
+                            className='d-flex align-items-center justify-content-center'>
                             <Route path='/signup' component={Signup}>
-                                <div className='w-100' style={{ maxWidth: '400px' }}>
+                                <div className='signup-frame'>
                                     <Signup />
                                 </div>
                             </Route>
                             <Route path='/login' component={LogIn}>
-                                <div className='w-100' style={{ maxWidth: '400px' }}>
+                                <div className='login-frame'>
                                     <LogIn/>
                                 </div>
                             </Route>

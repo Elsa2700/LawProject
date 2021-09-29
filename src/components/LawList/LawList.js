@@ -206,14 +206,14 @@ const LawList = () => {
     const TableList = () => {
         return (
             <>
-                <i className="grey huge balance scale icon"></i>
+                <i className="grey balance scale icon"></i>
                 <table className="ui celled table">
                     <thead>
                         <tr>
-                            <th colSpan="6" style={{ textAlign: 'start', paddingLeft: '100px', fontSize: '38px' }} >{levelcz}{keyword}
+                            <th colSpan="6" className='table-header'>{levelcz}{keyword}
                             </th>
                         </tr>
-                        <tr className='table-title' style={{ backgroundColor: 'rgba(197, 227, 225, 0.24)', fontSize: '10px' }}>
+                        <tr className='table-title'>
                             <td colSpan="2" >查詢</td>
                             <td colSpan="1" >法規名稱</td>
                             <td colSpan="1">類別</td>

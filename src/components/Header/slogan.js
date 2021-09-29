@@ -9,7 +9,7 @@ const Slogan = () => {
                     <p>你的最佳法規筆記工具</p>
                     <p>快速找尋您要的法規資訊</p>
                 </div>
-                <i className="darkgrey massive chess knight icon"></i>
+                <i className="darkgrey chess knight icon"></i>
             </div>
         </div>
     )

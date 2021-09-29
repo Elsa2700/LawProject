@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import LawList from '../LawList/LawList';
 import { BrowserRouter as Route, Link, Switch } from "react-router-dom";
 
