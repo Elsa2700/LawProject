@@ -146,6 +146,12 @@
         align-items: center;
         text-decoration: underline rgba(229, 229, 229, 1);
     }
+    .law-menu-text .title{
+        font-size: 50px;
+        color: black;
+        margin-bottom: 15px;
+
+    }
     .law-menu-text {
         color: rgb(73, 71, 71);
         font-family: sans-serif;
@@ -193,6 +199,14 @@
         opacity: .6;
         font-size: 100px;
         margin-top: 20px;
+    }
+    i.large.search {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 15px;
+        font-size: 35px;
+        color: rgb(110, 106, 100);
     }
     .ui.icon.input>i.icon:not(.link) {
         pointer-events: auto
@@ -330,14 +344,13 @@
         display: block;
         z-index: 3;
         margin: auto;
-        position: fixed;
-        left: 10%;
-        top: 25%;
-        width: 120%;
-        height: 120%;
+        width: 100px;
+        height: 100px;
         background-image: url('https://media.giphy.com/media/PUYgk3wpNk0WA/giphy.gif');
         opacity: .5;
         background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 100% 100%;
     }
     .member-gif {
         border-radius: 70px;
@@ -462,6 +475,13 @@
     .ui.search {
         width: 100%;
     }
+    i.search.icon {
+        position: absolute;
+        color: rgb(100, 94, 94);
+        top: 0;
+        right: 0;
+        margin: 25px;
+    }
     .search-frame {
         display: flex;
         align-items: center;
@@ -488,5 +508,11 @@
         position: absolute;
         bottom: 20px;
         right: 20px;
+    }
+    .law-menu-text .title{
+        font-size: 50px;
+        color: black;
+        margin-bottom: 15px;
+
     }
 }

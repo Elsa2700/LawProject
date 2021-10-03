@@ -6,17 +6,15 @@ import PropTypes from "prop-types";
 
 
 const MynoteInfo = ((props) => {
-    // console.log(props.item[0].order)
     const [active1, setActive1] = useState('');
     const [active2, setActive2] = useState('');
     const [active3, setActive3] = useState('');
     const [activedef, setActivedef] = useState('active');
-    const [clipbroad, setclipbroad] = useState(1);
-    
+    const [clipbroad, setClipbroad] = useState(1);
+
 
     const handleSelect = (e) => {
-
-        setclipbroad(e);
+        setClipbroad(e);
         if (e == 2) {
             setActive1(''); setActive2('active'); setActive3(''); setActivedef('');
         } else if (e == 3) {
@@ -24,12 +22,9 @@ const MynoteInfo = ((props) => {
         } else {
             setActive1('active'); setActive2(''); setActive3('');
         }
-        console.log(clipbroad)
     }
 
     const Note = () => {
-
-    
         return (
             <>
                 <h2>筆記內容:</h2>
@@ -44,7 +39,6 @@ const MynoteInfo = ((props) => {
     const LawData = () => {
         const [laws, setlaws] = useState({});
         let lawsId = props.item.laws;
-        console.log(lawsId);
 
         useEffect(() => {
             const fetchLawData = (docid) => {
@@ -53,11 +47,10 @@ const MynoteInfo = ((props) => {
                     .get()
                     .then((doc) => {
                         if (doc.exists) {
-                            console.log("Document data:", doc.data());
                             let data = doc.data();
-                            setlaws({...data});
+                            setlaws({ ...data });
                         } else {
-                            console.log("No such document!");
+                            return
                         }
                     })
                     .catch((error) => {
@@ -65,9 +58,8 @@ const MynoteInfo = ((props) => {
                     })
             }
             fetchLawData(lawsId);
-            
-        },[]);
-        console.log(laws)
+
+        }, []);
 
         return (
             <>
@@ -141,7 +133,7 @@ const MynoteInfo = ((props) => {
 
 MynoteInfo.propTypes = {
     item: PropTypes.object.isRequired,
-  };
-  
+};
+
 
 export default MynoteInfo;

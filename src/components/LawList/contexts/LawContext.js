@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
-import Context from '../../../context';
+import React, { Component } from 'react';
+import { auth } from '../../../database/firebase-service';
+import Context from './context';
 import PropTypes from "prop-types";
-import auth from '../../../database/firebase-service';
 
-LawContextProvider.propTypes = {
-    children: PropTypes.string.isRequired,
-  };
+
 class LawContextProvider extends Component{
     state = {law: []}
     componentDidMount() {
@@ -25,5 +23,8 @@ class LawContextProvider extends Component{
         )
     }
 }
+LawContextProvider.propTypes = {
+    children: PropTypes.string.isRequired,
+  };
 
 export default LawContextProvider;

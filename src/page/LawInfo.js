@@ -7,7 +7,7 @@ import LawMain from '../components/LawMain/LawMain';
 import PropTypes from "prop-types";
 
 
-const LawInfo = ({location}) => {
+const LawInfo = ({ location }) => {
     return (
         <div>
             <NavBar />
@@ -19,9 +19,7 @@ const LawInfo = ({location}) => {
 }
 LawInfo.propTypes = {
     location: PropTypes.object.isRequired,
-  };
-
-
+};
 
 
 export default LawInfo;

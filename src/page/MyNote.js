@@ -2,13 +2,12 @@
 import React, { useState, useContext } from 'react';
 import NavBar from '../components/Navbar/nav';
 import Root from '../components/Navbar/root';
-import Context from '../context';
+import Context from '../components/LawList/contexts/context';
 import NoteMain from '../components/NoteMain/NoteMain';
 import NoteList from '../components/NoteList/NoteList';
 import '../style/MyNote.css';
 import MynoteInfo from './MynoteInfo';
 import PropTypes from "prop-types";
-
 
 
 const MyNote = ({ location }) => {
@@ -17,16 +16,15 @@ const MyNote = ({ location }) => {
     const MyNoteContent = () => {
         let Box = 'show';
         let BoxInfo = 'hide';
-        const [BoxToggle, setBoxToggle] = useState(false);
-        const [Item, setItem] = useState([]);
+        const [boxToggle, setBoxToggle] = useState(false);
+        const [items, setItems] = useState([]);
 
 
-        const callback = (openBox, Item, item) => {
-            console.log(Item)
-            setItem(item);
+        const handleToggle = (openBox, items, item) => {
+            setItems(item);
             setBoxToggle(openBox);
         }
-        if (BoxToggle) {
+        if (boxToggle) {
             Box = 'hide';
             BoxInfo = 'show';
 
@@ -34,19 +32,17 @@ const MyNote = ({ location }) => {
             Box = 'show';
             BoxInfo = 'hide';
         }
-        console.log(Box, BoxInfo)
-        console.log(Item)
 
 
         return (
             <div className={user.email == undefined ? 'hide' : 'show'}>
                 <div className='MyNote-frame'>
-                    <NoteList parentcallback={callback} />
+                    <NoteList toggleItems={handleToggle} />
                     <div className={Box === 'hide' ? 'hide' : 'noteMain-frame'}>
                         <NoteMain className='NoteMain' MyNote={location.state ? location.state.lawnote : ''} />
                     </div>
                     <div className={`noteInfo-frame ${BoxInfo}`}>
-                        {Item.length == 0 ? '' : <MynoteInfo item={Item} />}
+                        {items.length == 0 ? '' : <MynoteInfo item={items} />}
                     </div>
                 </div>
             </div>

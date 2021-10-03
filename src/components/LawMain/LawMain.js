@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 
 const LawMain = ({ LawInfo }) => {
     const [fontSize, setFontSize] = useState('');
-    const lawKey = LawInfo.keyid;
+    const lawKey = LawInfo.key;
 
 
     const Chapter = LawInfo.LawArticles.map(({ ArticleType, ArticleContent }) => {
@@ -90,5 +90,5 @@ const LawMain = ({ LawInfo }) => {
 
 LawMain.propTypes = {
     LawInfo: PropTypes.object.isRequired,
-  };
+};
 export default LawMain;

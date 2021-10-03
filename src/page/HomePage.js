@@ -13,7 +13,7 @@ class HomePage extends React.Component {
             <div>
                 <NavBar />
                 <Header />
-                <LawMenu/>
+                <LawMenu />
                 <Root />
             </div>
         )

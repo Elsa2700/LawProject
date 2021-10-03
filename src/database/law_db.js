@@ -11,8 +11,8 @@ for(let i=0; i<=lawData.Laws.length; i++){
         // firebase.initializeApp({firebaseConfig});
     }
     firestore.collection("lawData").add(lawData.Laws[i])
-    .then((docRef) => {
-        console.log("ID名稱: ", docRef.id);
+    .then(() => {
+        return
     })
     .catch((error)=>{
         console.log("ERROR adding document: ", error);

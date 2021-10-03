@@ -8,13 +8,8 @@ import '../../style/LawList.css';
 import Loading from '../Loading/Loading';
 
 
-
 const LawList = () => {
-
-    //初始化
     const [list, setList] = useState([]);
-    const [prevFirstItem, setPrevFirstItem] = useState([]);
-    const [lastVisible, setlastVisible] = useState([]);
     const [page, setPage] = useState(0);
     const query = new URLSearchParams(useLocation().search);
     const level = query.get('level');
@@ -24,182 +19,162 @@ const LawList = () => {
 
     if (!keywordsearch) {
         if (level === 'constitution') {
-            levelcz = '憲法'
+            levelcz = '憲法';
         }
         else if (level === 'law') {
-            levelcz = '法律'
+            levelcz = '法律';
         } else {
-            levelcz = '命令'
+            levelcz = '命令';
         }
     } else {
-        keyword = keywordsearch
+        keyword = keywordsearch;
     }
 
-    //loading initial data
+
     useEffect(() => {
-        const fetchLevelData = () => {
-            firestore
+
+        const fetchLevelData = async () => {
+            await firestore
                 .collection('lawData')
-                .limit(10)
                 .where('LawLevel', '==', levelcz)
                 .orderBy('LawCategory', 'desc')
-                .get().then((documentSnapshots) => {
-                    const data = documentSnapshots.docs.map((doc) => ({ ...doc.data(), keyid: doc.id }))
-                    setList(data);
-                });
+                .limit(10)
+                .onSnapshot(function (querySnapshot) {
+                    var items = [];
+                    querySnapshot.forEach(function (doc) {
+                        items.push({ key: doc.id, ...doc.data() });
+                    });
+                    setList(items);
+                })
         };
 
-
-        //關鍵字搜尋=====================
-        const fetchSearchData = () => {
-            firestore
+        const fetchSearchData = async () => {
+            await firestore
                 .collection('lawData')
                 .where('wordDB', 'array-contains', keyword)
                 .orderBy('LawName', 'desc')
                 .limit(10)
-                .get().then((documentSnapshots) => {
-                    const data = documentSnapshots.docs.map((doc) => ({
-                         ...doc.data(), keyid: doc.id 
-                        }));
-                    
-                    setList(data);
-                    setlastVisible(lastVisible);
-
-                });
+                .onSnapshot(function (querySnapshot) {
+                    var items = [];
+                    querySnapshot.forEach(function (doc) {
+                        items.push({ key: doc.id, ...doc.data() });
+                    });
+                    setList(items);
+                })
         };
-       
 
-
-        if (keyword === '') {
-            fetchLevelData();
-            return { num: false }
-        }
-        else {
-            fetchSearchData();
-            return { num: true }
-        }
+        (keyword === '' ? fetchLevelData() : fetchSearchData())
     }, []);
 
-    //next button function
-    const fetchLevelNextData = (lastVisible) => {
-        prevFirstItem[page] = list[0]
-        setPrevFirstItem(prevFirstItem)
-        firestore
-            .collection('lawData')
-            .limit(10)
-            .where('LawLevel', '==', levelcz)
-            .orderBy('LawCategory', 'desc')
-            .startAfter(lastVisible.LawCategory)
-            .get().then((documentSnapshots) => {
-                const items = documentSnapshots.docs.map((doc) => ({ key: doc.id, ...doc.data() }));
-                setList(items);
-                setPage(page + 1);
-            });
-    };
-    const fetchLevelPreviousData = (lastVisible) => {
-        firestore
-            .collection('lawData')
-            .where('LawLevel', '==', levelcz)
-            .orderBy('LawCategory', 'desc')
-            .startAt(lastVisible.LawCategory)
-            .limit(10)
-            .get().then((documentSnapshots) => {
-                const items = documentSnapshots.docs.map((doc) => ({ key: doc.id, ...doc.data() }));
-                setList(items);
-                setPage(page - 1);
-            });
-    };
-
-
-    //關鍵字搜尋=====================
-    const fetchSearchNextData = (lastVisible) => {
-        prevFirstItem[page] = list[0];
-        setPrevFirstItem(prevFirstItem);
-        firestore
-            .collection('lawData')
-            .where('wordDB', 'array-contains', keyword)
-            .orderBy('LawName', 'desc')
-            .startAfter(lastVisible.LawCategory)
-            .limit(10)
-            .get().then((documentSnapshots) => {
-                const items = documentSnapshots.docs.map((doc) => ({ key: doc.id, ...doc.data() }));
-                setList(items);
-                setPage(page + 1);
-            });
-    };
-
-    const fetchSearchPreviousData = (lastVisible) => {
-        firestore
-            .collection('lawData')
-            .where('wordDB', 'array-contains', keyword)
-            .limit(10)
-            .orderBy('LawCategory', 'desc')
-            .startAt(lastVisible.LawCategory)
-            .get().then((documentSnapshots) => {
-                const items = documentSnapshots.docs.map((doc) => ({ key: doc.id, ...doc.data() }));
-                setList(items);
-                setPage(page - 1);
-            });
-    };
-
-    const NoData = () => {
-        return (
-            <div className="nodata">
-                <div className='nodataimg'></div>
-            </div>
-        )
-    }
 
 
 
-    //上下頁
-    const ShowNext = (item) => {
-        if (!item) {
-            return 
-        }
-
-        if (keyword === '') {
-            fetchLevelNextData(item);
-        } else {
-            fetchSearchNextData(item);
-        }
-    };
-    const showPrevious = (item) => {
-        if (!item) {
+    const showNext = ({ item }) => {
+        if (list.length < 10) {
             return
-        }
-        if (keyword === '') {
-            fetchLevelPreviousData(item);
         } else {
-            fetchSearchPreviousData(item);
+            const fetchLevelNextData = async () => {
+                await firestore
+                    .collection('lawData')
+                    .where('LawLevel', '==', levelcz)
+                    .orderBy('LawCategory', 'desc')
+                    .startAfter(item.LawCategory)
+                    .limit(10)
+                    .onSnapshot(function (querySnapshot) {
+                        const items = [];
+                        querySnapshot.forEach(function (doc) {
+                            items.push({ key: doc.id, ...doc.data() });
+                        })
+                        setList(items);
+                        setPage(page + 1);
+                    });
+
+            };
+
+            const fetchSearchNextData = async () => {
+                await firestore
+                    .collection('lawData')
+                    .where('wordDB', 'array-contains', keyword)
+                    .orderBy('LawName', 'desc')
+                    .startAfter(item.LawName)
+                    .limit(10)
+                    .onSnapshot(function (querySnapshot) {
+                        const items = [];
+                        querySnapshot.forEach(function (doc) {
+                            items.push({ key: doc.id, ...doc.data() });
+                        })
+                        setList(items);
+                        setPage(page + 1);
+                    });
+
+            };
+
+            (keyword === '' ? fetchLevelNextData() : fetchSearchNextData())
         }
     };
 
 
+    const showPrevious = ({ item }) => {
+        if (page === 0) {
+            return
+        } else {
+            const fetchLevelPreviousData = async () => {
+                await firestore
+                    .collection('lawData')
+                    .where('LawLevel', '==', levelcz)
+                    .orderBy('LawCategory', 'desc')
+                    .endBefore(item.LawCategory)
+                    .limitToLast(10)
+                    .onSnapshot(function (querySnapshot) {
+                        const items = [];
+                        querySnapshot.forEach(function (doc) {
+                            items.push({ key: doc.id, ...doc.data() });
+                        });
+                        setList(items);
+                        setPage(page - 1);
+                    })
+            };
 
-    const laws = list.map(({ keyid, LawName, LawModifiedDate, LawHistories, LawCategory, LawURL, LawArticles }) => {
+            const fetchSearchPreviousData = async () => {
+                await firestore
+                    .collection('lawData')
+                    .where('wordDB', 'array-contains', keyword)
+                    .orderBy('LawName', 'desc')
+                    .endBefore(item.LawName)
+                    .limitToLast(10)
+                    .onSnapshot(function (querySnapshot) {
+                        const items = [];
+                        querySnapshot.forEach(function (doc) {
+                            items.push({ key: doc.id, ...doc.data() });
+                        });
+                        setList(items);
+                        setPage(page - 1);
+                    })
+            };
+            (keyword === '' ? fetchLevelPreviousData() : fetchSearchPreviousData())
+        }
+
+    };
+
+
+
+    const laws = list.map(({ key, LawName, LawModifiedDate, LawHistories, LawCategory, LawURL, LawArticles }) => {
         return (
-            <Fragment key={keyid}>
+            <>
                 <tr>
                     <Link className='LawList-href' to={{
                         pathname: '/LawInfo',
-                        state: { lawinfo: { keyid, LawName, LawModifiedDate, LawHistories, LawCategory, LawURL, LawArticles } }
+                        state: { lawinfo: { key, LawName, LawModifiedDate, LawHistories, LawCategory, LawURL, LawArticles } }
                     }}>
                         <td colSpan="2">
-                            <i className="large book icon"></i>
+                            <i className="large book icon" />
                         </td>
                     </Link>
                     <td colSpan="2">{LawName}</td>
                     <td colSpan="1">{LawCategory}</td>
                     <td colSpan="2">{LawModifiedDate}</td>
-
                 </tr>
-
-            </Fragment>
-
-
-
-
+            </>
         )
     })
 
@@ -210,8 +185,7 @@ const LawList = () => {
                 <table className="ui celled table">
                     <thead>
                         <tr>
-                            <th colSpan="6" className='table-header'>{levelcz}{keyword}
-                            </th>
+                            <th colSpan="6" className='table-header'>{levelcz}{keyword}</th>
                         </tr>
                         <tr className='table-title'>
                             <td colSpan="2" >查詢</td>
@@ -230,26 +204,25 @@ const LawList = () => {
         <>
             <div>
                 <NavBar />
-                {list.length == 0 ? <Loading /> : ''}
+                {list.length === 0 ? <Loading /> : ''}
                 <div className="page-btn">
-                    <button className='ui huge left labeled icon button' onClick={() => showPrevious(prevFirstItem[page - 1])}>
+
+                    <button className='ui huge left labeled icon button' onClick={() => showPrevious({ item: list[0] })}>
                         <i className="left arrow icon"></i>
                         上一頁
                     </button>
-                    <button className='ui huge right labeled icon button' onClick={() => ShowNext(list[list.length - 1])}>
+
+                    <button className='ui huge right labeled icon button' onClick={() => showNext({ item: list[list.length - 1] })}>
                         <i className="right arrow icon"></i>
                         下一頁
                     </button>
-                    <div className="page-info"><span className="now">第{page + 1}頁</span></div>
-                </div>
-
-                <Fragment>
-                    <div className="laws-list-frame">
-                        <div>
-                            {list.length==0 ? <NoData /> : <TableList />}
-                        </div>
+                    <div className="page-info">
+                        <span className="now">第{page + 1}頁</span>
                     </div>
-                </Fragment >
+                </div>
+                <div className="laws-list-frame">
+                    <TableList />
+                </div>
 
                 <Root />
             </div>

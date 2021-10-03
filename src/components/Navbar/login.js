@@ -4,9 +4,6 @@ import { auth } from '../../database/firebase-service';
 import '../../style/member.css';
 import { Link, useHistory } from 'react-router-dom';
 
-
-
-
 const LogIn = () => {
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -20,10 +17,8 @@ const LogIn = () => {
         try {
             setError('')
             setLoading(true)
-            let result = await auth.signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
-            console.log(result.user.email);
+            await auth.signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
             history.push('/');
-
         } catch (error) {
             console.log(error.message)
             setError('帳號密碼有誤 😓')

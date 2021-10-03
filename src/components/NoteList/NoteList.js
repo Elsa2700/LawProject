@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
-import Context from '../../context';
+import Context from '../LawList/contexts/context';
 import { firestore } from '../../database/firebase-service';
 import Loading from '../Loading/Loading';
 import PropTypes from "prop-types";
 
 
-const NoteList = ({ parentcallback }) => {
+const NoteList = ({ toggleItems }) => {
     const { user } = useContext(Context);
     const [Item, setItem] = useState([]);
     const [openBox, setOpenBox] = useState(false);
@@ -32,7 +32,6 @@ const NoteList = ({ parentcallback }) => {
         firestore
             .collection('users').doc(doc).delete()
             .then(() => {
-                console.log("Document successfully deleted!");
                 window.location.reload();
             }).catch((error) => {
                 console.error("Error removing document: ", error);
@@ -47,17 +46,17 @@ const NoteList = ({ parentcallback }) => {
         deleteMyNote(ItemKey);
     }
 
-    const buildItems = Item.map((item,index) => {
+    const buildItems = Item.map((item, index) => {
         return (
             <div key={index} className='note-list-frame'
-                onClick={() => { setOpenBox(!openBox); parentcallback(openBox, Item, item) }} Item={Item}>
+                onClick={() => { setOpenBox(!openBox); toggleItems(openBox, Item, item) }} Item={Item}>
 
                 <div className={`item ${item.noteColor}`} key={item}>
                     <div className='notelist-frame'>
-                        <div style={{ fontWeight: 'bolder', color: '#716F81' }}>{item.law.ArticleNo}</div>
-                        <div style={{ color: '#716F81' }}>{item.law.ArticleContent}</div>
+                        <div>{item.law.ArticleNo}</div>
+                        <div>{item.law.ArticleContent}</div>
                         <hr />
-                        <div style={{ color: '#716F81' }}>{item.noteContent}</div>
+                        <div>{item.noteContent}</div>
                         <div className='note-time'>{item.order}</div>
                     </div>
 
@@ -78,16 +77,16 @@ const NoteList = ({ parentcallback }) => {
 
     return (
         <div className='NoteList-frame'>
-            {Item.length == 0 ? <Loading /> : ''}
+            {Item.length === 0 ? <Loading /> : ''}
             <div className='NoteList' onScroll={handleScroll()}>
-                {Item.length == 0 ? <Box /> : ''}
-                    < div > { buildItems }</div>
-        </div>
+                {Item.length === 0 ? <Box /> : ''}
+                < div > {buildItems}</div>
+            </div>
         </div >
     )
 }
 NoteList.propTypes = {
-    parentcallback: PropTypes.object.isRequired,
-  };
+    toggleItems: PropTypes.object.isRequired,
+};
 
 export default NoteList;

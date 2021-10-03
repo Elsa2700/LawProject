@@ -241,6 +241,19 @@
         margin: 420px auto;
         text-align: center;
         padding: 10px;
+        transition-delay: 3s;
+        animation: fadeText 5s ease-out;
+    }
+    @keyframes fadeText {
+        0% {
+            opacity: 0;
+        }
+        20% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
     @keyframes example {
         from {

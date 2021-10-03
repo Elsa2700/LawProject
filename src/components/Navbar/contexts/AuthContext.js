@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {auth}  from '../../../database/firebase-service';
-import Context from '../../../context';
+import React, { Component } from 'react';
+import { auth } from '../../../database/firebase-service';
+import Context from '../../LawList/contexts/context';
 import PropTypes from "prop-types";
 
 
-class AuthContextProvider extends Component{
-    state = {user: []}
+class AuthContextProvider extends Component {
+    state = { user: [] }
     componentDidMount() {
         auth.onAuthStateChanged((user) => {
             if (user.email === this.state.email) {
@@ -15,8 +15,8 @@ class AuthContextProvider extends Component{
             }
         });
     }
-    render(){
-        return(
+    render() {
+        return (
             <Context.Provider value={this.state}>
                 {this.props.children}
             </Context.Provider>
@@ -25,5 +25,5 @@ class AuthContextProvider extends Component{
 }
 AuthContextProvider.propTypes = {
     children: PropTypes.array.isRequired,
-  };
+};
 export default AuthContextProvider;

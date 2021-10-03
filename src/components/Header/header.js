@@ -10,7 +10,6 @@ const Header = () => {
                 <Slogan />
                 <SearchBar className="searchBar" />
             </div>
-
         </div>
 
     )

@@ -21,8 +21,7 @@ const Signup = () => {
         try {
             setError('')
             setLoading(true)
-            let result = await auth.createUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
-            console.log(result.user.email);
+            await auth.createUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
             history.push('/')
 
 

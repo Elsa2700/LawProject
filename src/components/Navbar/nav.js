@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import '../../style/member.css';
 import { auth } from '../../database/firebase-service';
-import Context from '../../context';
+import Context from '../LawList/contexts/context';
 
 const NavBar = () => {
     const { user } = useContext(Context);
@@ -12,8 +12,7 @@ const NavBar = () => {
     const handleLogout = async (e) => {
         e.preventDefault();
         try {
-            let result = await auth.signOut();
-            console.log(result, '登出狀態');
+            await auth.signOut();
             history.go(0)
         } catch (error) {
             setErrormsg(error.messag);
@@ -36,11 +35,11 @@ const NavBar = () => {
                 <Link to='/'><li onClick={handleLogout} className="member-frame-style" >登出</li></Link>
                 <Link to='/signup'>
                     <li className="member-name">
-                    <div className="member-gif"></div>
-                    <div>
-                    <span>welcome </span>
-                        <div>{user.email}</div>
-                    </div>
+                        <div className="member-gif"></div>
+                        <div>
+                            <span>welcome </span>
+                            <div>{user.email}</div>
+                        </div>
                     </li>
                 </Link>
             </ul>
@@ -50,7 +49,6 @@ const NavBar = () => {
 
     const LoggedState = () => {
         const isLoggedIn = user.email;
-        console.log('登入狀態', isLoggedIn);
         if (isLoggedIn !== undefined) {
             return <LogoutBtn />
         }
